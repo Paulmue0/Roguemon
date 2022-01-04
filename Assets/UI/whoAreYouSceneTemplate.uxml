@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="/Assets/DialogBox.uss" />
+    <ui:VisualElement style="width: 100%; height: 50%; flex-grow: 1; align-items: center; justify-content: center; flex-direction: column;">
+        <ui:VisualElement style="flex-grow: 1; width: 100%; height: 75%; align-items: center; justify-content: center;">
+            <ui:TextField picking-mode="Ignore" label="type your name here..." value="filler text" text="Name" />
+        </ui:VisualElement>
+        <ui:VisualElement name="DialogBox" style="flex-grow: 1; height: 25%; width: 100%; margin-left: 0; margin-right: 0;">
+            <ui:Label text="Test Dialog..." display-tooltip-when-elided="true" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement style="width: 100%; height: 50%; align-items: center; justify-content: center; flex-grow: 1;" />
+</ui:UXML>

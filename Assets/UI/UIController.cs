@@ -18,17 +18,20 @@ public class UIController : MonoBehaviour
         switchToBattleButton = root.Q<Button>("switch-to-battle-scene-button");
         
         if(switchToPickButton != null)
-            switchToPickButton.clicked += switchToPickSceneButtonPressed;
+            switchToPickButton.clicked += switchToPickScene;
         if(switchToBattleButton != null)
-            switchToBattleButton.clicked += switchToBattleSceneButtonPressed;
+            switchToBattleButton.clicked += switchToBattleScene;
         
     }
 
-    void switchToPickSceneButtonPressed(){
+    void switchToWhoAreYouScene(){
+        SceneManager.LoadScene("whoAreYouScene");
+    }
+    void switchToPickScene(){
         SceneManager.LoadScene("pickRoguemon");
     }
 
-    void switchToBattleSceneButtonPressed(){
+    void switchToBattleScene(){
         SceneManager.LoadScene("battleScene");
     }
 }
