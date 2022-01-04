@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99736ec3a9a3c31d88b4020f216fdba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Generic_Roguemon: {fileID: 0}
+  Generic_Roguemon: {fileID: 8110170015360156167, guid: 4e76decc17fb3170ca85e993a3511543, type: 3}
 --- !u!114 &1708121989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25566ba3dbee7c099a82a0927dfa332e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Generic_Move: {fileID: 5150473438635393916, guid: 032880d052c9f95ebbc6cb7848d248d8, type: 3}
+  Generic_Effect: {fileID: 2858312394730127389, guid: a22075d25b94b7b65902915ed87454dd, type: 3}
 --- !u!114 &1708121990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +305,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144275719}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &2144275721
 Camera:
   m_ObjectHideFlags: 0

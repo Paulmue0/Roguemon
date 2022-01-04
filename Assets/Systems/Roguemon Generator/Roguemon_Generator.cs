@@ -10,4 +10,8 @@ public class Roguemon_Generator : MonoBehaviour
       GameObject New_Roguemon = Instantiate(Generic_Roguemon);
       return New_Roguemon;
     }
+
+    public void Add_Move(GameObject roguemon, GameObject move){
+      move.transform.parent = roguemon.transform;
+    }
 }
