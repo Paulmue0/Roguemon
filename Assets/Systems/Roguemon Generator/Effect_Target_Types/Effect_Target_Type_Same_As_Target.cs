@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Effect_Target_Type_Same_As_Target : Effect_Target_Type
 {
+  public override string description{
+    get{
+      return "";
+    }
+  }
 
   // This Effect_Target_Type affects the same Roguemon that where also
   // targeted by the Move_Target_Type of the corresponding move.

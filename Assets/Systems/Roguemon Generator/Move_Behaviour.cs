@@ -4,6 +4,39 @@ using UnityEngine;
 
 public class Move_Behaviour : MonoBehaviour
 {
+    // Getter and Setter
+
+    public string Get_Move_Description(){
+      List<GameObject> Effects = Get_Effects();
+
+      string full_description = "";
+      Move_Target_Type mttype = Get_Move_Target_Type();
+      full_description += name + "[" + mttype.description + "]\n";
+      foreach(GameObject EffectGO in Effects){
+        Effect Effect = EffectGO.GetComponent(typeof(Effect)) as Effect;
+        Effect_Target_Type ettype = Effect.Get_Effect_Target_Type();
+        if(ettype.description == ""){
+          full_description += Effect.description + ".";
+        }else{
+          full_description += Effect.description + " to " + ettype.description + ".";
+        }
+      }
+      return full_description;
+    }
+
+    public Move_Target_Type Get_Move_Target_Type(){
+      return gameObject.GetComponent(typeof(Move_Target_Type)) as Move_Target_Type;
+    }
+
+    // returns list of all children gameObjects with component of type Effect
+    public List<GameObject> Get_Effects(){
+      List<GameObject> Effects = new List<GameObject>();
+      foreach (Effect child in GetComponentsInChildren<Effect>()){
+            Effects.Add(child.gameObject);
+        }
+      return Effects;
+    }
+
     // Methods
 
     // Gets the targeted Roguemon from the Target_Type and then applies all Effects

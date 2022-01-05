@@ -4,6 +4,10 @@ using UnityEngine;
 
 public abstract class Move_Target_Type : MonoBehaviour
 {
+  public abstract string description{
+    get;
+  }
+
   // Methods
 
   // Returns a List of Roguemon that the Move targets. Must be overwritten
