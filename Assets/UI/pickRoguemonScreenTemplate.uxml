@@ -7,11 +7,11 @@
             <ui:Button text="Roguemon 3" display-tooltip-when-elided="true" name="pick-mon3" style="height: 90px; width: 30%; -unity-background-scale-mode: stretch-to-fill; background-color: rgb(204, 80, 95); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;" />
         </ui:VisualElement>
         <ui:VisualElement name="DialogBox" style="flex-grow: 1; width: 100%; height: 25%;">
-            <ui:Label text="Test Dialog..." display-tooltip-when-elided="true" />
+            <ui:Label text="Test Dialog..." display-tooltip-when-elided="true" name="DialogLabel" />
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement style="width: 100%; height: 50%; align-items: center; justify-content: center; flex-grow: 1;">
         <ui:ListView focusable="true" />
-        <ui:Label text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." display-tooltip-when-elided="true" style="white-space: normal;" />
+        <ui:Label text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." display-tooltip-when-elided="true" name="StatsLabel" style="white-space: normal;" />
     </ui:VisualElement>
 </ui:UXML>
