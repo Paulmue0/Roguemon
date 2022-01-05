@@ -251,7 +251,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Generic_Move: {fileID: 5150473438635393916, guid: 032880d052c9f95ebbc6cb7848d248d8, type: 3}
-  Generic_Effect: {fileID: 2858312394730127389, guid: a22075d25b94b7b65902915ed87454dd, type: 3}
+  Effects:
+  - {fileID: 0}
+  - {fileID: 0}
+  TTypes: []
 --- !u!114 &1708121990
 MonoBehaviour:
   m_ObjectHideFlags: 0

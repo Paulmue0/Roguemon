@@ -37,7 +37,7 @@ public class Roguemon_Behaviour : MonoBehaviour
       Speed = stats[2];
       Health = stats[3];
 
-      if(Health < 0){
+      if(Health <= 0){
         Die();
       }
     }

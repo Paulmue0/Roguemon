@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5214651469879553160}
   - component: {fileID: 3554357467390095455}
   - component: {fileID: 5846522880473441493}
+  - component: {fileID: 151969267408561424}
   m_Layer: 0
   m_Name: Generic_Roguemon
   m_TagString: Untagged
@@ -100,3 +101,22 @@ MonoBehaviour:
   Speed: 10
   Health: 100
   Alive: 0
+--- !u!95 &151969267408561424
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8110170015360156167}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d008feca77525319193f5b374db4649d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -11,7 +11,7 @@ public class Roguemon_Generator : MonoBehaviour
       return New_Roguemon;
     }
 
-    public void Add_Move(GameObject roguemon, GameObject move){
-      move.transform.parent = roguemon.transform;
+    public void Add_Move(Transform parent, Transform move){
+      move.parent = parent;
     }
 }
