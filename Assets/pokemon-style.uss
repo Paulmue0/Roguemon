@@ -1,0 +1,44 @@
+.pokemon-style {
+    height: 30%;
+    width: 60%;
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: rgb(56, 56, 56);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-image: url('/Assets/Art/Missigno.png');
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    position: relative;
+    flex-grow: 1;
+    overflow: visible;
+}
+
+.moves-style {
+    font-size: 15px;
+}
+
+.unity-foldout {
+}
+
+.unity-foldout--depth-0 {
+}
+
+.pokemonContainer-style {
+    overflow: hidden;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+    -unity-background-scale-mode: scale-to-fit;
+}
