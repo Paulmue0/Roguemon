@@ -4,6 +4,10 @@ using UnityEngine;
 
 public abstract class Effect_Target_Type : MonoBehaviour
 {
+  public abstract string description{
+    get;
+  }
+
   // Constructor
   public Effect_Target_Type(){
   }

@@ -16,6 +16,12 @@ public class Battle_Manager : MonoBehaviour
 
         Move_Generator.Generate_Effect(Move_Generator.Generate_Generic_Move(missigno.transform).transform, "Effect_Damage", "Effect_Target_Type_Same_As_Target");
 
+        Roguemon_Behaviour missigno_rb = missigno.GetComponent(typeof(Roguemon_Behaviour)) as Roguemon_Behaviour;
+        foreach(GameObject moveGO in missigno_rb.Get_Moves()){
+          Move_Behaviour move = moveGO.GetComponent(typeof(Move_Behaviour)) as Move_Behaviour;
+          Debug.Log(move.Get_Move_Description());
+        }
+
         foreach(Transform child in missigno.transform){
           Move_Behaviour move = child.GetComponent(typeof(Move_Behaviour)) as Move_Behaviour;
           move.Do_Move();

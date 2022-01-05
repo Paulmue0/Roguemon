@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Effect_Generic : Effect
 {
-    public override void Apply_Effect(GameObject Affected){
-      Debug.Log("Nothing happened to " + Affected.name);
+  public override string description{
+    get{
+      return "Does nothing";
     }
+  }
+
+  public override void Apply_Effect(GameObject Affected){
+    Debug.Log("Nothing happened to " + Affected.name);
+  }
 }

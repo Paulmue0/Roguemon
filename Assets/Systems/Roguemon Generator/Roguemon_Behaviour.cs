@@ -19,6 +19,7 @@ public class Roguemon_Behaviour : MonoBehaviour
     }
 
     // Getter and Setter
+
     public float[] Get_Stats(){
       return new float[]{Damage, Defense, Speed, Health};
     }
@@ -41,6 +42,17 @@ public class Roguemon_Behaviour : MonoBehaviour
         Die();
       }
     }
+
+    // returns list of all children GameObjects with component of type Move_Behaviour
+    public List<GameObject> Get_Moves(){
+      List<GameObject> Moves = new List<GameObject>();
+      foreach (Move_Behaviour child in GetComponentsInChildren<Move_Behaviour>()){
+          Moves.Add(child.gameObject);
+      }
+      return Moves;
+    }
+
+    // Methods
 
     public void Take_Damage(float amount){
       Debug.Log(name + " takes " + amount + " damage!");
