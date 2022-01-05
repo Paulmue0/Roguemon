@@ -1,2 +1,41 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="/Assets/pokemon-style.uss" />
+    <Style src="/Assets/DialogBox.uss" />
+    <ui:VisualElement style="width: 100%; height: 50%; flex-grow: 1; align-items: center; justify-content: center; flex-direction: column;">
+        <ui:VisualElement style="width: 100%; height: 75%; overflow: visible; justify-content: space-around;">
+            <ui:VisualElement name="EnemyTeam" style="width: 100%; height: 50%; flex-direction: row; align-items: center; overflow: hidden; -unity-text-align: upper-left; justify-content: space-around; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 10px;">
+                <ui:VisualElement name="enemy-1" class="pokemonContainer-style" style="flex-grow: 1;">
+                    <ui:Button display-tooltip-when-elided="true" name="mon-4" class="pokemon-style" />
+                </ui:VisualElement>
+                <ui:VisualElement name="enemy-2" class="pokemonContainer-style" style="flex-grow: 1;">
+                    <ui:Button display-tooltip-when-elided="true" name="mon-5" enable-rich-text="false" class="pokemon-style" />
+                </ui:VisualElement>
+                <ui:VisualElement name="enemy-3" class="pokemonContainer-style" style="flex-grow: 1;">
+                    <ui:Button display-tooltip-when-elided="false" name="mon-6" class="pokemon-style" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="YourTeam" style="flex-direction: row; height: 50%; width: 100%; justify-content: space-around; align-items: center; overflow: hidden;">
+                <ui:VisualElement name="yours-1" class="pokemonContainer-style">
+                    <ui:Button display-tooltip-when-elided="true" name="mon-1" enable-rich-text="false" class="pokemon-style" />
+                </ui:VisualElement>
+                <ui:VisualElement name="yours-2" class="pokemonContainer-style" style="flex-grow: 1;">
+                    <ui:Button display-tooltip-when-elided="false" name="mon-2" class="pokemon-style" />
+                </ui:VisualElement>
+                <ui:VisualElement name="yours-3" class="pokemonContainer-style" style="flex-grow: 1;">
+                    <ui:Button display-tooltip-when-elided="false" name="mon-3" class="pokemon-style" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="DialogBox" style="flex-grow: 1; width: 100%; height: 25%;">
+            <ui:Label text="Test Dialog..." display-tooltip-when-elided="true" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement style="width: 100%; height: 50%; align-items: stretch; justify-content: flex-start; flex-grow: 1; -unity-text-align: middle-left; -unity-background-scale-mode: stretch-to-fill; flex-direction: row;">
+        <ui:VisualElement style="width: 50%; flex-grow: 1; align-items: center; justify-content: center;">
+            <ui:Button text="Eat" display-tooltip-when-elided="true" name="eat-button" style="flex-grow: 0; width: 30%; height: 30%;" />
+        </ui:VisualElement>
+        <ui:VisualElement style="width: 50%; flex-grow: 1; justify-content: center; align-items: center;">
+            <ui:Button text="Trade" display-tooltip-when-elided="true" name="trade-button" style="width: 30%; height: 30%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>

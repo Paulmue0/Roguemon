@@ -1,6 +1,6 @@
 .pokemon-style {
-    height: 90px;
-    width: 159px;
+    height: 30%;
+    width: 60%;
     -unity-background-scale-mode: scale-to-fit;
     background-color: rgb(56, 56, 56);
     border-left-width: 0;
@@ -21,5 +21,24 @@
     padding-top: 0;
     padding-bottom: 0;
     position: relative;
-    flex-grow: 0;
+    flex-grow: 1;
+    overflow: visible;
+}
+
+.moves-style {
+    font-size: 15px;
+}
+
+.unity-foldout {
+}
+
+.unity-foldout--depth-0 {
+}
+
+.pokemonContainer-style {
+    overflow: hidden;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+    -unity-background-scale-mode: scale-to-fit;
 }
