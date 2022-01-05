@@ -3,45 +3,45 @@
     <ui:VisualElement style="width: 100%; height: 50%; flex-grow: 1; align-items: center; justify-content: center; flex-direction: column;">
         <ui:VisualElement style="width: 100%; height: 75%; overflow: visible; justify-content: space-around;">
             <ui:VisualElement name="EnemyTeam" style="width: 100%; height: 50%; flex-direction: row; align-items: center; overflow: hidden; -unity-text-align: upper-left; justify-content: space-around; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 10px;">
+                <ui:VisualElement name="enemy-0" class="pokemonContainer-style" style="flex-grow: 1;">
+                    <ui:Button display-tooltip-when-elided="true" name="mon-3" class="pokemon-style" />
+                </ui:VisualElement>
                 <ui:VisualElement name="enemy-1" class="pokemonContainer-style" style="flex-grow: 1;">
-                    <ui:Button display-tooltip-when-elided="true" name="mon-4" class="pokemon-style" />
+                    <ui:Button display-tooltip-when-elided="true" name="mon-4" enable-rich-text="false" class="pokemon-style" />
                 </ui:VisualElement>
                 <ui:VisualElement name="enemy-2" class="pokemonContainer-style" style="flex-grow: 1;">
-                    <ui:Button display-tooltip-when-elided="true" name="mon-5" enable-rich-text="false" class="pokemon-style" />
-                </ui:VisualElement>
-                <ui:VisualElement name="enemy-3" class="pokemonContainer-style" style="flex-grow: 1;">
-                    <ui:Button display-tooltip-when-elided="false" name="mon-6" class="pokemon-style" />
+                    <ui:Button display-tooltip-when-elided="false" name="mon-5" class="pokemon-style" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="YourTeam" style="flex-direction: row; height: 50%; width: 100%; justify-content: space-around; align-items: center; overflow: hidden;">
-                <ui:VisualElement name="yours-1" class="pokemonContainer-style">
-                    <ui:Button display-tooltip-when-elided="true" name="mon-1" enable-rich-text="false" class="pokemon-style" />
+                <ui:VisualElement name="yours-0" class="pokemonContainer-style">
+                    <ui:Button display-tooltip-when-elided="true" name="mon-0" enable-rich-text="false" class="pokemon-style" />
+                </ui:VisualElement>
+                <ui:VisualElement name="yours-1" class="pokemonContainer-style" style="flex-grow: 1;">
+                    <ui:Button display-tooltip-when-elided="false" name="mon-1" class="pokemon-style" />
                 </ui:VisualElement>
                 <ui:VisualElement name="yours-2" class="pokemonContainer-style" style="flex-grow: 1;">
                     <ui:Button display-tooltip-when-elided="false" name="mon-2" class="pokemon-style" />
                 </ui:VisualElement>
-                <ui:VisualElement name="yours-3" class="pokemonContainer-style" style="flex-grow: 1;">
-                    <ui:Button display-tooltip-when-elided="false" name="mon-3" class="pokemon-style" />
-                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="DialogBox" style="flex-grow: 1; width: 100%; height: 25%;">
-            <ui:Label text="Test Dialog..." display-tooltip-when-elided="true" />
+            <ui:Label text="Test Dialog..." display-tooltip-when-elided="true" name="DialogLabel" />
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement style="width: 100%; height: 50%; align-items: flex-start; justify-content: flex-start; flex-grow: 1; -unity-text-align: middle-left; -unity-background-scale-mode: stretch-to-fill;">
         <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1">
             <ui:Foldout text="Attacke 1" name="Foldout-Attck-1" class="moves-style">
-                <ui:Label text="Lirum larum tolle attacke" display-tooltip-when-elided="true" />
+                <ui:Label text="Lirum larum tolle attacke" display-tooltip-when-elided="true" name="att-1-label" />
             </ui:Foldout>
             <ui:Foldout text="Attacke 2" name="Foldout-Attck-2" class="moves-style">
-                <ui:Label text="Lirum larum tolle attacke" display-tooltip-when-elided="true" />
+                <ui:Label text="Lirum larum tolle attacke" display-tooltip-when-elided="true" name="att-2-label" />
             </ui:Foldout>
             <ui:Foldout text="Attacke 3" name="Foldout-Attck-3" class="moves-style">
-                <ui:Label text="Lirum larum tolle attacke" display-tooltip-when-elided="true" />
+                <ui:Label text="Lirum larum tolle attacke" display-tooltip-when-elided="true" name="att-3-label" />
             </ui:Foldout>
             <ui:Foldout text="Attacke 4" name="Foldout-Attck-4" class="moves-style">
-                <ui:Label text="Lirum larum tolle attacke" display-tooltip-when-elided="true" />
+                <ui:Label text="Lirum larum tolle attacke" display-tooltip-when-elided="true" name="att-4-label" />
             </ui:Foldout>
         </ui:ScrollView>
     </ui:VisualElement>

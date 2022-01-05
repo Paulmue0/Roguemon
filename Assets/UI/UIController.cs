@@ -2,36 +2,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
-    public Button switchToPickButton;
-    public Button switchToBattleButton;
+    // Buttons for the 3 Roguemon of your team
+    public Button roguemonButton_0;
+    public Button roguemonButton_1;
+    public Button roguemonButton_2;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+    // Buttons for the 3 Roguemon of enemy trainer team
+    public Button roguemonButton_3;
+    public Button roguemonButton_4;
+    public Button roguemonButton_5;
+    
+    // Label for Dialog-Window
+    public Label dialogLabel;
 
-        switchToPickButton = root.Q<Button>("switch-to-pick-scene-button");
-        switchToBattleButton = root.Q<Button>("switch-to-battle-scene-button");
-        
-        if(switchToPickButton != null)
-            switchToPickButton.clicked += switchToPickScene;
-        if(switchToBattleButton != null)
-            switchToBattleButton.clicked += switchToBattleScene;
-        
-    }
+    // Foldout containing the Moves of the Roguemon
+    public Foldout att_1_foldout;
+    public Foldout att_2_foldout;
+    public Foldout att_3_foldout;
+    public Foldout att_4_foldout;
+    // Label inside the Foldout. 
+    // Description of the moves of the Roguemon
+    public Label att_1_label;
+    public Label att_2_label;
+    public Label att_3_label;
+    public Label att_4_label;
 
-    void switchToWhoAreYouScene(){
-        SceneManager.LoadScene("whoAreYouScene");
-    }
-    void switchToPickScene(){
-        SceneManager.LoadScene("pickRoguemon");
-    }
+    // Label showing the Stats
+    public Label statsLabel;
 
-    void switchToBattleScene(){
-        SceneManager.LoadScene("battleScene");
-    }
+    /*
+    EAT OR TRADE SPECIFICS
+    */
+    public Button eatButton;
+    public Button tradeButton;
+
+    /*
+    PICK ROGUEMON SPECIFICS
+    */
+    public Button pickRoguemon_1;
+    public Button pickRoguemon_2;
+    public Button pickRoguemon_3;
+
+     /*
+    SELECT BADGE SPECIFICS
+    */
+    public Button pickBadge_1;
+    public Button pickBadge_2;
+    public Button pickBadge_3;
+
+    public Label badgeDescriptionLabel;
+
+     /*
+    WHO ARE YOU SPECIFICS
+    */
+    public TextField enterName;
 }
