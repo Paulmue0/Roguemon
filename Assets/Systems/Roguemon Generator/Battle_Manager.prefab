@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4841354829063450868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4841354829063450864}
+  - component: {fileID: 4841354829063450865}
+  - component: {fileID: 4841354829063450879}
+  - component: {fileID: 4841354829063450867}
+  - component: {fileID: 4841354829063450866}
+  m_Layer: 0
+  m_Name: Battle_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4841354829063450864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4841354829063450868}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4841354829063450865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4841354829063450868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 878b8574cc97113f1bf7e60e2595b624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Trainer_Generator: {fileID: 4841354829063450879}
+  Roguemon_Generator: {fileID: 4841354829063450867}
+  Move_Generator: {fileID: 4841354829063450866}
+  Player: {fileID: 0}
+  Opponent: {fileID: 0}
+--- !u!114 &4841354829063450879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4841354829063450868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9768e53434a5fde2d8b4f943a21207f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Roguemon_Generator: {fileID: 4841354829063450867}
+  Generic_Trainer: {fileID: 7825827448700023754, guid: 55f6105e60540a356906a3a7d07d63bc, type: 3}
+--- !u!114 &4841354829063450867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4841354829063450868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b99736ec3a9a3c31d88b4020f216fdba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Move_Generator: {fileID: 4841354829063450866}
+  Generic_Roguemon: {fileID: 8110170015360156167, guid: 4e76decc17fb3170ca85e993a3511543, type: 3}
+--- !u!114 &4841354829063450866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4841354829063450868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25566ba3dbee7c099a82a0927dfa332e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Generic_Move: {fileID: 5150473438635393916, guid: 032880d052c9f95ebbc6cb7848d248d8, type: 3}
+  Effects:
+  - {fileID: 0}
+  - {fileID: 0}
+  TTypes: []

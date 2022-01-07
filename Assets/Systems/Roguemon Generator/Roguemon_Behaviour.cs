@@ -67,16 +67,4 @@ public class Roguemon_Behaviour : MonoBehaviour
       Alive = false;
       Debug.Log(name + " has died :(");
     }
-
-    private void OnMouseDown(){
-         Touch[] touches = Input.touches;
-         foreach (Touch touch in touches)
-         {
-             if(UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(touch.fingerId))
-             {
-                  Debug.Log("You touched " + name);
-             }
-         }
-      }
-
 }

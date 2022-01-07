@@ -6,12 +6,20 @@ public class Move_Behaviour : MonoBehaviour
 {
     // Getter and Setter
 
+    public string Get_Name(){
+      return name;
+    }
+
+    public void Set_Name(string new_name){
+      name = new_name;
+    }
+
     public string Get_Move_Description(){
       List<GameObject> Effects = Get_Effects();
 
       string full_description = "";
       Move_Target_Type mttype = Get_Move_Target_Type();
-      full_description += name + "[" + mttype.description + "]\n";
+      full_description += mttype.description + "]\n";
       foreach(GameObject EffectGO in Effects){
         Effect Effect = EffectGO.GetComponent(typeof(Effect)) as Effect;
         Effect_Target_Type ettype = Effect.Get_Effect_Target_Type();

@@ -5,12 +5,9 @@ using UnityEngine;
 public class Move_Generator : MonoBehaviour
 {
   public GameObject Generic_Move;
-  public List<Effect> Effects;
-  public List<Effect_Target_Type> TTypes;
 
     public GameObject Generate_Generic_Move(Transform parent){
       GameObject New_Move = Instantiate(Generic_Move, parent);
-      Debug.Log("Generated generic move..");
       return New_Move;
     }
 
@@ -18,7 +15,6 @@ public class Move_Generator : MonoBehaviour
       GameObject New_Effect = new GameObject("Effect", System.Type.GetType(effect), System.Type.GetType(ttype));
       New_Effect.transform.parent = parent;
 
-      Debug.Log("Generated effect..");
       return New_Effect;
     }
 
