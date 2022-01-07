@@ -7,6 +7,8 @@ public class Battle_Manager : MonoBehaviour
    public Roguemon_Generator Roguemon_Generator;
    public Move_Generator Move_Generator;
 
+   public GameObject Roguemon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,11 +28,17 @@ public class Battle_Manager : MonoBehaviour
           Move_Behaviour move = child.GetComponent(typeof(Move_Behaviour)) as Move_Behaviour;
           move.Do_Move();
         }
+
+        Roguemon = missigno;
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public GameObject getRoguemon(){
+      return Roguemon;
     }
 }

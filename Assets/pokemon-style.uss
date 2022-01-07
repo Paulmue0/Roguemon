@@ -11,7 +11,7 @@
     border-bottom-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    background-image: url('/Assets/Art/Missigno.png');
+    background-image: none;
     margin-right: 0;
     margin-left: 0;
     margin-top: 0;

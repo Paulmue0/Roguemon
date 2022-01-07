@@ -14,7 +14,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="YourTeam" style="flex-direction: row; height: 50%; width: 100%; justify-content: space-around; align-items: center; overflow: hidden;">
-                <ui:VisualElement name="yours-0" class="pokemonContainer-style">
+                <ui:VisualElement name="yours-0" class="pokemonContainer-style" style="background-image: none;">
                     <ui:Button display-tooltip-when-elided="true" name="mon-0" enable-rich-text="false" class="pokemon-style" />
                 </ui:VisualElement>
                 <ui:VisualElement name="yours-1" class="pokemonContainer-style" style="flex-grow: 1;">
@@ -30,19 +30,41 @@
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement style="width: 100%; height: 50%; align-items: flex-start; justify-content: flex-start; flex-grow: 1; -unity-text-align: middle-left; -unity-background-scale-mode: stretch-to-fill;">
-        <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1">
-            <ui:Foldout text="Attacke 1" name="Foldout-Attck-1" class="moves-style">
-                <ui:Label text="Lirum larum tolle attacke" display-tooltip-when-elided="true" name="att-1-label" />
-            </ui:Foldout>
-            <ui:Foldout text="Attacke 2" name="Foldout-Attck-2" class="moves-style">
-                <ui:Label text="Lirum larum tolle attacke" display-tooltip-when-elided="true" name="att-2-label" />
-            </ui:Foldout>
-            <ui:Foldout text="Attacke 3" name="Foldout-Attck-3" class="moves-style">
-                <ui:Label text="Lirum larum tolle attacke" display-tooltip-when-elided="true" name="att-3-label" />
-            </ui:Foldout>
-            <ui:Foldout text="Attacke 4" name="Foldout-Attck-4" class="moves-style">
-                <ui:Label text="Lirum larum tolle attacke" display-tooltip-when-elided="true" name="att-4-label" />
-            </ui:Foldout>
-        </ui:ScrollView>
+        <ui:VisualElement style="flex-direction: column;">
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-1-button" style="-unity-text-align: middle-center;" />
+                <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-1" />
+            </ui:VisualElement>
+            <ui:VisualElement>
+                <ui:Label text="description" display-tooltip-when-elided="true" name="att-1-description-label" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-direction: column;">
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-2-button" style="-unity-text-align: middle-center;" />
+                <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-2" />
+            </ui:VisualElement>
+            <ui:VisualElement>
+                <ui:Label text="description" display-tooltip-when-elided="true" name="att-2-description-label" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-direction: column;">
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-3-button" style="-unity-text-align: middle-center;" />
+                <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-3" />
+            </ui:VisualElement>
+            <ui:VisualElement>
+                <ui:Label text="description" display-tooltip-when-elided="true" name="att-3-description-label" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-direction: column;">
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-4-button" style="-unity-text-align: middle-center;" />
+                <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-4" />
+            </ui:VisualElement>
+            <ui:VisualElement>
+                <ui:Label text="description" display-tooltip-when-elided="true" name="att-4-description-label" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

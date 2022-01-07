@@ -18,17 +18,25 @@ public class UIController : MonoBehaviour
     // Label for Dialog-Window
     public Label dialogLabel;
 
-    // Foldout containing the Moves of the Roguemon
-    public Foldout att_1_foldout;
-    public Foldout att_2_foldout;
-    public Foldout att_3_foldout;
-    public Foldout att_4_foldout;
-    // Label inside the Foldout. 
-    // Description of the moves of the Roguemon
-    public Label att_1_label;
-    public Label att_2_label;
-    public Label att_3_label;
-    public Label att_4_label;
+    // Components for Attack 1
+    public Button att_1_button;
+    public Button switch_move_description_1;
+    public Label att_1_description_label;
+ 
+    // Components for Attack 2
+    public Button att_2_button;
+    public Button switch_move_description_2;
+    public Label att_2_description_label;
+
+     // Components for Attack 3
+    public Button att_3_button;
+    public Button switch_move_description_3;
+    public Label att_3_description_label;
+
+    // Components for Attack 4
+    public Button att_4_button;
+    public Button switch_move_description_4;
+    public Label att_4_description_label;
 
     // Label showing the Stats
     public Label statsLabel;
