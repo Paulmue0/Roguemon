@@ -9,11 +9,19 @@ public class BattleUIController : UIController
 
     public UIHelper helper;
     public Roguemon_Behaviour roguemon_behaviour;
+    public Battle_Manager battleManager;
+    public GameObject selectedRoguemon;
+    public List<GameObject> movesOfSelectedRoguemon; 
+    public List<Label> MoveDescriptors;
     // Start is called before the first frame update
     void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
         
+        MoveDescriptors = new List<Label>();
+        selectedRoguemon = battleManager.Get_Roguemon(0);
+        movesOfSelectedRoguemon = selectedRoguemon.GetComponent<Roguemon_Behaviour>().Get_Moves();
+
         // Define the 3 RogueButtons from your team
         roguemonButton_0 = root.Q<Button>("mon-1");
         roguemonButton_1 = root.Q<Button>("mon-2");
@@ -29,9 +37,11 @@ public class BattleUIController : UIController
 
         // Define Components for Attack 1
         att_1_button = root.Q<Button>("att-1-button");
-        att_1_button.text =  "mojn";
+        att_1_button.text = movesOfSelectedRoguemon[0].name;
         switch_move_description_1 = root.Q<Button>("switch-move-description-1");
+
         att_1_description_label = root.Q<Label>("att-1-description-label");
+        //att_1_description_label.text = movesOfSelectedRoguemon[0].GetComponent<Move_Behaviour>().Get_Move_Description();
 
         // Define Components for Attack 2
         att_2_button = root.Q<Button>("att-2-button");
@@ -47,12 +57,89 @@ public class BattleUIController : UIController
         att_4_button = root.Q<Button>("att-4-button");
         switch_move_description_4 = root.Q<Button>("switch-move-description-4");
         att_4_description_label = root.Q<Label>("att-4-description-label");
+    	
+        // Define List of Move Descriptors for dynamical linking to UIHelper
+        MoveDescriptors.Add(att_1_description_label);
+        MoveDescriptors.Add(att_2_description_label);
+        MoveDescriptors.Add(att_3_description_label);
+        MoveDescriptors.Add(att_4_description_label);
+
+        helper.setAllMoveDescriptors(MoveDescriptors, movesOfSelectedRoguemon);
+
+        /* 
+        BUTTON EVENTS
+        */
+
 
         if(att_4_button != null)
            att_4_button.clicked += att_4_buttonClicked;
 
         if(att_3_button != null)
            att_3_button.clicked += att_3_buttonClicked;
+
+        // Events for Move Descriptor Labels
+        if (switch_move_description_1 != null)
+            
+                switch_move_description_1.clicked += () => {
+                    try
+                    {
+                        helper.switchMoveDescription(movesOfSelectedRoguemon[0].GetComponent<Move_Behaviour>().Get_Move_Description(), att_1_description_label);
+  
+                    }
+                    catch (System.ArgumentOutOfRangeException)
+                    {
+                        
+                        Debug.Log("Roguemon apparently does not have a move in this slot");
+                    }
+                };
+
+        if (switch_move_description_2 != null)
+            
+                switch_move_description_2.clicked += () => {
+                    try
+                    {
+                        helper.switchMoveDescription(movesOfSelectedRoguemon[1].GetComponent<Move_Behaviour>().Get_Move_Description(), att_2_description_label);
+  
+                    }
+                    catch (System.ArgumentOutOfRangeException)
+                    {
+                        
+                        Debug.Log("Roguemon apparently does not have a move in this slot");
+                    }
+                };
+
+        if (switch_move_description_3 != null)
+            
+                switch_move_description_3.clicked += () => {
+                    try
+                    {
+                        helper.switchMoveDescription(movesOfSelectedRoguemon[2].GetComponent<Move_Behaviour>().Get_Move_Description(), att_3_description_label);
+  
+                    }
+                    catch (System.ArgumentOutOfRangeException)
+                    {
+                        
+                        Debug.Log("Roguemon apparently does not have a move in this slot");
+                    }
+                };
+        if (switch_move_description_4 != null)
+            
+                switch_move_description_4.clicked += () => {
+                    try
+                    {
+                        helper.switchMoveDescription(movesOfSelectedRoguemon[3].GetComponent<Move_Behaviour>().Get_Move_Description(), att_4_description_label);
+  
+                    }
+                    catch (System.ArgumentOutOfRangeException)
+                    {
+                        
+                        Debug.Log("Roguemon apparently does not have a move in this slot");
+                    }
+                };
+        
+
+                    
+                
 
         void att_4_buttonClicked(){
             Debug.Log(helper.getXValueOfButton(att_4_button));
@@ -61,7 +148,6 @@ public class BattleUIController : UIController
 
         void att_3_buttonClicked(){
             Debug.Log(helper.getXValueOfButton(att_3_button));
-
         }
         /* Example for Event Listener (Button)
         if(switchToPickButton != null)
@@ -69,5 +155,10 @@ public class BattleUIController : UIController
         if(switchToBattleButton != null)
             switchToBattleButton.clicked += switchToBattleScene;
         */
+
+        
     }
+    GameObject getSelectedPokemon(){
+            return selectedRoguemon;
+        }
 }

@@ -78,8 +78,4 @@ public class Battle_Manager : MonoBehaviour
         move.Do_Move();
       }
     }
-
-    public GameObject getRoguemon(){
-      return Roguemon;
-    }
 }

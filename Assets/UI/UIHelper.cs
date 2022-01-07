@@ -28,8 +28,27 @@ public class UIHelper : MonoBehaviour
     public string getXValueOfButton(Button button){
         Debug.Log(button.transform.ToString());
         return button.transform.position.ToString();
+    }
 
-     
+    public void switchMoveDescription(string moveDescription, Label label){
+        if(moveDescription != null){
+            if(label.text != "")
+                        label.text = "";
+                    else
+                        label.text = moveDescription;
+        }
+        
+    }
+
+    public void setAllMoveDescriptors(List<Label> moveDescriptors, List<GameObject> moves){
+        if(moveDescriptors != null && moves != null){
+            int i = 0;
+            foreach(GameObject move in moves){   
+                moveDescriptors[i].text = move.GetComponent<Move_Behaviour>().Get_Move_Description();
+                i ++;
+            }
+        }
+        
     }
     
 }

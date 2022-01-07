@@ -35,8 +35,8 @@
                 <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-1-button" style="-unity-text-align: middle-center;" />
                 <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-1" />
             </ui:VisualElement>
-            <ui:VisualElement>
-                <ui:Label text="description" display-tooltip-when-elided="true" name="att-1-description-label" />
+            <ui:VisualElement name="test">
+                <ui:Label text="description" display-tooltip-when-elided="true" name="att-1-description-label" style="flex-shrink: 1;" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement style="flex-direction: column;">
