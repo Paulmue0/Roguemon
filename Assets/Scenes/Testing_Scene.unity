@@ -216,8 +216,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1708121991}
   - component: {fileID: 1708121990}
-  - component: {fileID: 1708121989}
+  - component: {fileID: 1708121992}
   - component: {fileID: 1708121988}
+  - component: {fileID: 1708121989}
   m_Layer: 0
   m_Name: Battle_Manager
   m_TagString: Untagged
@@ -237,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99736ec3a9a3c31d88b4020f216fdba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Move_Generator: {fileID: 1708121989}
   Generic_Roguemon: {fileID: 8110170015360156167, guid: 4e76decc17fb3170ca85e993a3511543, type: 3}
 --- !u!114 &1708121989
 MonoBehaviour:
@@ -267,8 +269,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878b8574cc97113f1bf7e60e2595b624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Trainer_Generator: {fileID: 1708121992}
   Roguemon_Generator: {fileID: 1708121988}
   Move_Generator: {fileID: 1708121989}
+  Player: {fileID: 0}
+  Opponent: {fileID: 0}
 --- !u!4 &1708121991
 Transform:
   m_ObjectHideFlags: 0
@@ -283,6 +288,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1708121992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708121987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9768e53434a5fde2d8b4f943a21207f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Roguemon_Generator: {fileID: 1708121988}
+  Generic_Trainer: {fileID: 7825827448700023754, guid: 55f6105e60540a356906a3a7d07d63bc, type: 3}
 --- !u!1 &2144275719
 GameObject:
   m_ObjectHideFlags: 0
