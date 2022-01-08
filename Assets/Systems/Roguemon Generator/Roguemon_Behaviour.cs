@@ -65,23 +65,26 @@ public class Roguemon_Behaviour : MonoBehaviour
       if(moveGO.transform.parent != transform){
         throw new ArgumentException("Roguemon can't use move that is not assigned to it (=> child)");
       }else{
-        moveGO.GetComponent<Move_Behaviour>().Do_Move();
+        StartCoroutine(Use_Move_Coroutine(moveGO));
       }
     }
 
-    public void Take_Damage(float amount){
+    // need to be able to delay (in order to wait for the anim)
+    public IEnumerator Use_Move_Coroutine(GameObject moveGO){
+      yield return new WaitForSeconds(.25f);
+      moveGO.GetComponent<Move_Behaviour>().Do_Move();
+    }
 
+    public void Take_Damage(float amount){
       float[] stats = Get_Stats();
       stats[3] = stats[3] - amount;
       Set_Stats(stats);
       animator.SetTrigger("Take_Damage");
-
     }
 
     public void Die(){
       if(Alive){
-        Debug.Log(name + " has died!");
-        animator.SetBool("Alive_Anim_Var", false);
+        animator.SetTrigger("Die");
         Alive = false;
       }
     }

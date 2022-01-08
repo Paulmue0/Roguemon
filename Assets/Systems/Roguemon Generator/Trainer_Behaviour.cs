@@ -30,7 +30,7 @@ public class Trainer_Behaviour : MonoBehaviour
       for(int i = 0;i < lineup.Length;i++){
         GameObject roguemonGO = lineup[i];
         roguemonGO.transform.SetParent(gameObject.transform);
-        roguemonGO.transform.localPosition += new Vector3(-1 + i*1, 0, 0);
+        roguemonGO.transform.localPosition = new Vector3(-2.25f + i*2.25f, 0, 0);
       }
     }
 
@@ -49,15 +49,7 @@ public class Trainer_Behaviour : MonoBehaviour
       return gameObject.name;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+    public void Take_Turn(GameObject roguemonGO){
+        roguemonGO.GetComponent<Roguemon_Behaviour>().Use_Move(0);
     }
 }

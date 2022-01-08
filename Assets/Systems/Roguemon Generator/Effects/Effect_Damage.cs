@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Effect_Damage : Effect
 {
-  public float strength = 10;
+  public float strength = 30;
 
   public override string description{
     get{
