@@ -80,6 +80,7 @@ public class Roguemon_Behaviour : MonoBehaviour
 
     public void Die(){
       if(Alive){
+        Debug.Log(name + " has died!");
         animator.SetBool("Alive_Anim_Var", false);
         Alive = false;
       }
