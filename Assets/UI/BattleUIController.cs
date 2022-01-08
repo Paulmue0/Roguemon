@@ -13,14 +13,16 @@ public class BattleUIController : UIController
     public GameObject selectedRoguemon;
     public List<GameObject> movesOfSelectedRoguemon; 
     public List<Label> MoveDescriptors;
+    public List<Button> AttackButtons;
     // Start is called before the first frame update
     void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
         
         MoveDescriptors = new List<Label>();
-        selectedRoguemon = battleManager.Get_Roguemon(0);
-        movesOfSelectedRoguemon = selectedRoguemon.GetComponent<Roguemon_Behaviour>().Get_Moves();
+        AttackButtons = new List<Button>();
+        //selectedRoguemon = battleManager.Get_Roguemon(0);
+        
 
         // Define the 3 RogueButtons from your team
         roguemonButton_0 = root.Q<Button>("mon-1");
@@ -37,7 +39,7 @@ public class BattleUIController : UIController
 
         // Define Components for Attack 1
         att_1_button = root.Q<Button>("att-1-button");
-        att_1_button.text = movesOfSelectedRoguemon[0].name;
+        //att_1_button.text = movesOfSelectedRoguemon[0].name;
         switch_move_description_1 = root.Q<Button>("switch-move-description-1");
 
         att_1_description_label = root.Q<Label>("att-1-description-label");
@@ -64,7 +66,14 @@ public class BattleUIController : UIController
         MoveDescriptors.Add(att_3_description_label);
         MoveDescriptors.Add(att_4_description_label);
 
-        helper.setAllMoveDescriptors(MoveDescriptors, movesOfSelectedRoguemon);
+        // Define List of Attack Buttons for dynamical linking to UIHelper
+        AttackButtons.Add(att_1_button);
+        AttackButtons.Add(att_2_button);
+        AttackButtons.Add(att_3_button);
+        AttackButtons.Add(att_4_button);
+
+
+        
 
         /* 
         BUTTON EVENTS
@@ -72,7 +81,14 @@ public class BattleUIController : UIController
 
 
         if(att_4_button != null)
-           att_4_button.clicked += att_4_buttonClicked;
+           att_4_button.clicked += () => {
+                selectedRoguemon = battleManager.Get_Roguemon(0);
+                movesOfSelectedRoguemon = selectedRoguemon.GetComponent<Roguemon_Behaviour>().Get_Moves();
+                Debug.Log(selectedRoguemon.name);
+                helper.setAllMoveDescriptors(MoveDescriptors, movesOfSelectedRoguemon);
+                helper.setAllAttackButtons(AttackButtons, movesOfSelectedRoguemon);
+
+           };
 
         if(att_3_button != null)
            att_3_button.clicked += att_3_buttonClicked;

@@ -50,5 +50,17 @@ public class UIHelper : MonoBehaviour
         }
         
     }
+
+    public void setAllAttackButtons(List<Button> attackButtons, List<GameObject> moves){
+        if (attackButtons != null && moves != null){
+            int i = 0;
+            foreach(GameObject move in moves){
+                attackButtons[i].text = move.name;
+                i++;
+            }
+
+        }
+
+    }
     
 }
