@@ -27,7 +27,7 @@ public class Battle_Manager : MonoBehaviour
 
     void Update(){
       timer += Time.deltaTime;
-      if (timer > 2){
+      if (timer > 4){
         active_Roguemon.GetComponent<Roguemon_Behaviour>().Get_Moves()[0].GetComponent<Move_Behaviour>().Do_Move();
         timer = 0f;
       }
@@ -173,7 +173,7 @@ public class Battle_Manager : MonoBehaviour
 
     public void Test_Function(){
       GameObject missigno = Roguemon_Generator.Generate_Missigno();
-      
+
       Roguemon_Behaviour missigno_rb = missigno.GetComponent(typeof(Roguemon_Behaviour)) as Roguemon_Behaviour;
       foreach(GameObject moveGO in missigno_rb.Get_Moves()){
         Move_Behaviour move = moveGO.GetComponent(typeof(Move_Behaviour)) as Move_Behaviour;
