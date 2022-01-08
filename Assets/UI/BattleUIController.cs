@@ -79,7 +79,7 @@ public class BattleUIController : UIController
         BUTTON EVENTS
         */
 
-
+        
         if(att_4_button != null)
            att_4_button.clicked += () => {
                 selectedRoguemon = battleManager.Get_Roguemon(0);
@@ -89,9 +89,6 @@ public class BattleUIController : UIController
                 helper.setAllAttackButtons(AttackButtons, movesOfSelectedRoguemon);
 
            };
-
-        if(att_3_button != null)
-           att_3_button.clicked += att_3_buttonClicked;
 
         // Events for Move Descriptor Labels
         if (switch_move_description_1 != null)
@@ -155,26 +152,24 @@ public class BattleUIController : UIController
         
 
                     
-                
 
-        void att_4_buttonClicked(){
-            Debug.Log(helper.getXValueOfButton(att_4_button));
 
-        }
-
-        void att_3_buttonClicked(){
-            Debug.Log(helper.getXValueOfButton(att_3_button));
-        }
         /* Example for Event Listener (Button)
         if(switchToPickButton != null)
             switchToPickButton.clicked += switchToPickScene;
         if(switchToBattleButton != null)
             switchToBattleButton.clicked += switchToBattleScene;
         */
-
-        
     }
     GameObject getSelectedPokemon(){
             return selectedRoguemon;
         }
+
+    public void loadBattleRoguemon(GameObject Roguemon){
+                List<GameObject> moves = Roguemon.GetComponent<Roguemon_Behaviour>().Get_Moves();
+                Debug.Log(Roguemon.name);
+                Debug.Log("moomomomomomomin");
+                helper.setAllMoveDescriptors(MoveDescriptors, movesOfSelectedRoguemon);
+                helper.setAllAttackButtons(AttackButtons, movesOfSelectedRoguemon);
+    }
 }

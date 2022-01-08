@@ -187,6 +187,8 @@ MonoBehaviour:
   helper: {fileID: 87867863}
   roguemon_behaviour: {fileID: 0}
   battleManager: {fileID: 1274307520}
+  selectedRoguemon: {fileID: 0}
+  movesOfSelectedRoguemon: []
 --- !u!114 &87867863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battle_Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 6761508879930927406, guid: 71a3b4525ae5f4e479eb88c0f5229970, type: 3}
+      propertyPath: battleUI
+      value: 
+      objectReference: {fileID: 87867862}
     - target: {fileID: 6761508879930927407, guid: 71a3b4525ae5f4e479eb88c0f5229970, type: 3}
       propertyPath: m_RootOrder
       value: 3

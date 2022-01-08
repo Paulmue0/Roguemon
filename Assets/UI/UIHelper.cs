@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 
 public class UIHelper : MonoBehaviour
 {
-
     void switchToScene(string scene){
         try
         {
@@ -16,18 +15,6 @@ public class UIHelper : MonoBehaviour
         {
             throw;
         }
-    }
-
-    public string getRoguemonName(GameObject roguemon){
-        return roguemon.name;
-    }
-    public string getMoveName(GameObject roguemon, int i){
-        return roguemon.name;
-    }
-
-    public string getXValueOfButton(Button button){
-        Debug.Log(button.transform.ToString());
-        return button.transform.position.ToString();
     }
 
     public void switchMoveDescription(string moveDescription, Label label){
@@ -62,5 +49,6 @@ public class UIHelper : MonoBehaviour
         }
 
     }
+
     
 }

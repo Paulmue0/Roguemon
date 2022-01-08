@@ -9,6 +9,8 @@ public class Battle_Manager : MonoBehaviour
    public Roguemon_Generator Roguemon_Generator;
    public Move_Generator Move_Generator;
 
+   public BattleUIController battleUI;
+
    public GameObject Player;
    public GameObject Opponent;
 
@@ -66,7 +68,7 @@ public class Battle_Manager : MonoBehaviour
 
     public void Test_Function(){
       GameObject missigno = Roguemon_Generator.Generate_Missigno();
-
+      
       Roguemon_Behaviour missigno_rb = missigno.GetComponent(typeof(Roguemon_Behaviour)) as Roguemon_Behaviour;
       foreach(GameObject moveGO in missigno_rb.Get_Moves()){
         Move_Behaviour move = moveGO.GetComponent(typeof(Move_Behaviour)) as Move_Behaviour;
@@ -77,5 +79,7 @@ public class Battle_Manager : MonoBehaviour
         Move_Behaviour move = child.GetComponent(typeof(Move_Behaviour)) as Move_Behaviour;
         move.Do_Move();
       }
+      Debug.Log("sdfdsfds");
+      battleUI.loadBattleRoguemon(missigno);
     }
 }
