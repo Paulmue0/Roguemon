@@ -1,5 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="/Assets/pokemon-style.uss" />
+    <Style src="/Assets/btn_clicked.uss" />
+    <Style src="/Assets/btn_not_clicked.uss" />
     <ui:VisualElement style="width: 100%; height: 50%; flex-grow: 1; align-items: center; justify-content: center; flex-direction: column;">
         <ui:VisualElement style="width: 100%; height: 75%; overflow: visible; justify-content: space-around;">
             <ui:VisualElement name="EnemyTeam" style="width: 100%; height: 50%; flex-direction: row; align-items: center; overflow: hidden; -unity-text-align: upper-left; justify-content: space-around; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 10px;">
@@ -32,7 +34,7 @@
     <ui:VisualElement style="width: 100%; height: 50%; align-items: flex-start; justify-content: flex-start; flex-grow: 1; -unity-text-align: middle-left; -unity-background-scale-mode: stretch-to-fill;">
         <ui:VisualElement style="flex-direction: column;">
             <ui:VisualElement style="flex-direction: row;">
-                <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-1-button" style="-unity-text-align: middle-center;" />
+                <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-1-button" class="not-clicked-style" />
                 <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-1" />
             </ui:VisualElement>
             <ui:VisualElement name="test">
@@ -41,7 +43,7 @@
         </ui:VisualElement>
         <ui:VisualElement style="flex-direction: column;">
             <ui:VisualElement style="flex-direction: row;">
-                <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-2-button" style="-unity-text-align: middle-center;" />
+                <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-2-button" class="not-clicked-style" />
                 <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-2" />
             </ui:VisualElement>
             <ui:VisualElement>

@@ -5,6 +5,10 @@ using UnityEngine.UIElements;
 
 public class UIController : MonoBehaviour
 {
+    // StyleSheets
+    public StyleSheet btn_clicked;
+    public StyleSheet btn_not_clicked;
+
     // Buttons for the 3 Roguemon of your team
     public Button roguemonButton_0;
     public Button roguemonButton_1;

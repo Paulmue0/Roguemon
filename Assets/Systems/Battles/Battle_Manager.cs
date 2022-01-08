@@ -189,6 +189,6 @@ public class Battle_Manager : MonoBehaviour
         move.Do_Move();
       }
       Debug.Log("sdfdsfds");
-      battleUI.loadBattleRoguemon(missigno);
+      battleUI.loadRoguemonInBattleUI(missigno);
     }
 }

@@ -1,0 +1,4 @@
+.clicked-style {
+    -unity-text-align: middle-center;
+    background-color: rgb(130, 7, 18);
+}
