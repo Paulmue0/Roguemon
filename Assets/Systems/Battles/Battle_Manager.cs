@@ -26,7 +26,9 @@ public class Battle_Manager : MonoBehaviour
         throw new ArgumentException("The Opponent must be a Trainer. (GameObject missing Trainer_Behaviour)");
       }
       Opponent = new_Opponent;
+      Opponent.transform.SetParent(gameObject.transform);
       Opponent.transform.position = new Vector3(0, 3.25f, 0);
+
     }
 
     public GameObject Get_Opponent(){
@@ -38,6 +40,7 @@ public class Battle_Manager : MonoBehaviour
         throw new ArgumentException("The Player must be a Trainer. (GameObject missing Trainer_Behaviour)");
       }
       Player = new_Player;
+      Player.transform.SetParent(gameObject.transform);
       Player.transform.position = new Vector3(0, 1.5f, 0);
     }
 
@@ -62,7 +65,96 @@ public class Battle_Manager : MonoBehaviour
       }
     }
 
+    public int Get_Position(GameObject roguemonGO){
+      int i = 0;
+      Trainer_Behaviour player_TB = Player.GetComponent(typeof(Trainer_Behaviour)) as Trainer_Behaviour;
+      foreach(GameObject player_roguemon in player_TB.Get_Lineup()){
+        if(player_roguemon == roguemonGO) return i;
+        i++;
+      }
+      Trainer_Behaviour opponent_TB = Opponent.GetComponent(typeof(Trainer_Behaviour)) as Trainer_Behaviour;
+      foreach(GameObject opponent_roguemon in opponent_TB.Get_Lineup()){
+        if(opponent_roguemon == roguemonGO) return i;
+        i++;
+      }
+      return -1;
+    }
+
     // Methods
+
+    public List<int> Get_Adjacent_Position(int position){
+      List<int> adjacent_positions = new List<int>();
+
+      if(position == 0 || position == 3) adjacent_positions.Add(position+1);
+      if(position == 1 || position == 4){
+         adjacent_positions.Add(position+1);
+         adjacent_positions.Add(position-1);
+       }
+      if(position == 2 || position == 5) adjacent_positions.Add(position-1);
+      return adjacent_positions;
+    }
+
+    public List<int> Get_Opposing_Position(int position){
+      List<int> opposing_positions = new List<int>();
+
+      if(position > 2) opposing_positions.Add(position - 3);
+      else opposing_positions.Add(position + 3);
+      return opposing_positions;
+    }
+
+    public List<int> Get_Surrounding_Position(int position){
+      List<int> opposing_positions = Get_Adjacent_Position(position);
+      List<int> surrounding_positions = Get_Opposing_Position(position);
+
+      foreach(int entry in opposing_positions){
+        surrounding_positions.Add(entry);
+      }
+      return surrounding_positions;
+    }
+
+    public List<int> Get_Allies_Position(int position){
+      List<int> allies_positions = Get_Adjacent_Position(position);
+
+      if(position > 2){
+        allies_positions.Add(0);
+        allies_positions.Add(1);
+        allies_positions.Add(2);
+        allies_positions.Remove(position);
+      }
+      else{
+        allies_positions.Add(3);
+        allies_positions.Add(4);
+        allies_positions.Add(5);
+        allies_positions.Remove(position);
+      }
+
+      return allies_positions;
+    }
+
+    public List<int> Get_Enemies_Position(int position){
+      List<int> enemies_positions = Get_Adjacent_Position(position);
+
+      if(position > 2){
+        enemies_positions.Add(3);
+        enemies_positions.Add(4);
+        enemies_positions.Add(5);
+      }
+      else{
+        enemies_positions.Add(0);
+        enemies_positions.Add(1);
+        enemies_positions.Add(2);
+      }
+
+      return enemies_positions;
+    }
+
+    public List<GameObject> Get_Roguemons(List<int> positions){
+      List<GameObject> roguemons = new List<GameObject>();
+      foreach(int position in positions){
+        roguemons.Add(Get_Roguemon(position));
+      }
+      return roguemons;
+    }
 
     public void Test_Function(){
       GameObject missigno = Roguemon_Generator.Generate_Missigno();
