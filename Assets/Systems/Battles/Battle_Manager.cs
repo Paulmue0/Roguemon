@@ -12,11 +12,23 @@ public class Battle_Manager : MonoBehaviour
    public GameObject Player;
    public GameObject Opponent;
 
+   private GameObject active_Roguemon;
+   private float timer = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
       Set_Player(Trainer_Generator.Generate_Test_Trainer("Player"));
       Set_Opponent(Trainer_Generator.Generate_Test_Trainer("Opponent"));
+      active_Roguemon = Player.GetComponent<Trainer_Behaviour>().Get_Lineup()[0];
+    }
+
+    void Update(){
+      timer += Time.deltaTime;
+      if (timer > 2){
+        active_Roguemon.GetComponent<Roguemon_Behaviour>().Get_Moves()[0].GetComponent<Move_Behaviour>().Do_Move();
+        timer = 0f;
+      }
     }
 
     // Getter and Setter
@@ -150,6 +162,7 @@ public class Battle_Manager : MonoBehaviour
 
     public List<GameObject> Get_Roguemons(List<int> positions){
       List<GameObject> roguemons = new List<GameObject>();
+
       foreach(int position in positions){
         roguemons.Add(Get_Roguemon(position));
       }

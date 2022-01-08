@@ -13,6 +13,8 @@ public class Roguemon_Behaviour : MonoBehaviour
 
    public bool Alive = true;
 
+   public Animator animator;
+
     // Constructor
     public Roguemon_Behaviour(float dmg, float def, float spd, float hp){
       Set_Stats(new float[]{dmg, def, spd, hp});
@@ -55,16 +57,17 @@ public class Roguemon_Behaviour : MonoBehaviour
     // Methods
 
     public void Take_Damage(float amount){
-      Debug.Log(name + " takes " + amount + " damage!");
 
       float[] stats = Get_Stats();
       stats[3] = stats[3] - amount;
       Set_Stats(stats);
+      animator.SetTrigger("Take_Damage");
 
     }
 
     public void Die(){
-      Alive = false;
-      Debug.Log(name + " has died :(");
+      if(Alive){
+        Alive = false;
+      }
     }
 }

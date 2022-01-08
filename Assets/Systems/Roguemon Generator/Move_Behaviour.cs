@@ -55,6 +55,9 @@ public class Move_Behaviour : MonoBehaviour
 
       Make_Log_Entry();
 
+      // trigger the animation in the parent Roguemon
+      transform.parent.gameObject.GetComponent<Animator>().SetTrigger("Attack");
+
       // Check each child of this if it is an effect and if yet, then activate
       // it on the Targets returned by the Target_Type
       foreach (Transform child in transform) {
@@ -70,6 +73,6 @@ public class Move_Behaviour : MonoBehaviour
       string roguemon_name = transform.parent.gameObject.name;
       string move_name = gameObject.name;
 
-      Debug.Log(roguemon_name + " uses " + move_name + "!");
+      //Debug.Log(roguemon_name + " uses " + move_name + "!");
     }
 }
