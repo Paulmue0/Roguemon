@@ -56,6 +56,19 @@ public class Roguemon_Behaviour : MonoBehaviour
 
     // Methods
 
+    public void Use_Move(int move_pos){
+      Use_Move(Get_Moves()[move_pos]);
+    }
+
+    public void Use_Move(GameObject moveGO){
+      animator.SetTrigger("Attack");
+      if(moveGO.transform.parent != transform){
+        throw new ArgumentException("Roguemon can't use move that is not assigned to it (=> child)");
+      }else{
+        moveGO.GetComponent<Move_Behaviour>().Do_Move();
+      }
+    }
+
     public void Take_Damage(float amount){
 
       float[] stats = Get_Stats();
@@ -67,7 +80,9 @@ public class Roguemon_Behaviour : MonoBehaviour
 
     public void Die(){
       if(Alive){
+        animator.SetBool("Alive_Anim_Var", false);
         Alive = false;
       }
     }
+
 }

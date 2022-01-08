@@ -27,8 +27,8 @@ public class Battle_Manager : MonoBehaviour
 
     void Update(){
       timer += Time.deltaTime;
-      if (timer > 4){
-        active_Roguemon.GetComponent<Roguemon_Behaviour>().Get_Moves()[0].GetComponent<Move_Behaviour>().Do_Move();
+      if (timer > 2){
+        active_Roguemon.GetComponent<Roguemon_Behaviour>().Use_Move(active_Roguemon.GetComponent<Roguemon_Behaviour>().Get_Moves()[0]);
         timer = 0f;
       }
     }
@@ -169,6 +169,10 @@ public class Battle_Manager : MonoBehaviour
         roguemons.Add(Get_Roguemon(position));
       }
       return roguemons;
+    }
+
+    public void Start_Attack(int target_pos, int move_pos){
+      active_Roguemon.GetComponent<Roguemon_Behaviour>().Use_Move(move_pos);
     }
 
     public void Test_Function(){
