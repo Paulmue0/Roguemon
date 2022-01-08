@@ -170,7 +170,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &87867862
 MonoBehaviour:
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   helper: {fileID: 87867863}
   roguemon_behaviour: {fileID: 0}
-  battleManager: {fileID: 1274307520}
+  battleManager: {fileID: 0}
   selectedRoguemon: {fileID: 0}
   movesOfSelectedRoguemon: []
 --- !u!114 &87867863
@@ -348,7 +348,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1274307519
 PrefabInstance:
@@ -357,6 +357,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4841354829063450864, guid: 71a3b4525ae5f4e479eb88c0f5229970, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841354829063450865, guid: 71a3b4525ae5f4e479eb88c0f5229970, type: 3}
+      propertyPath: battleUI
+      value: 
+      objectReference: {fileID: 87867862}
     - target: {fileID: 6761508879930927403, guid: 71a3b4525ae5f4e479eb88c0f5229970, type: 3}
       propertyPath: m_Name
       value: Battle_Manager
@@ -411,14 +419,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71a3b4525ae5f4e479eb88c0f5229970, type: 3}
---- !u!114 &1274307520 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6761508879930927406, guid: 71a3b4525ae5f4e479eb88c0f5229970, type: 3}
-  m_PrefabInstance: {fileID: 1274307519}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 878b8574cc97113f1bf7e60e2595b624, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
