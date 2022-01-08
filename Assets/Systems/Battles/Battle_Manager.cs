@@ -14,7 +14,7 @@ public class Battle_Manager : MonoBehaviour
    public GameObject Player;
    public GameObject Opponent;
 
-   private GameObject active_Roguemon;
+   private GameObject active_RoguemonGO;
    private Queue<GameObject> turn_Queue;
 
    private
@@ -30,8 +30,8 @@ public class Battle_Manager : MonoBehaviour
     }
 
     IEnumerator Gameloop(){
-      Get_Next_Active_Roguemon();
-      Get_Trainer(active_Roguemon).GetComponent<Trainer_Behaviour>().Take_Turn(active_Roguemon);
+      Get_Next_active_RoguemonGO();
+      Get_Trainer(active_RoguemonGO).GetComponent<Trainer_Behaviour>().Take_Turn(active_RoguemonGO);
       yield return new WaitForSeconds(.25f);
       StartCoroutine(Gameloop());
     }
@@ -44,7 +44,7 @@ public class Battle_Manager : MonoBehaviour
       }
       Opponent = new_Opponent;
       Opponent.transform.SetParent(gameObject.transform);
-      Opponent.transform.position = new Vector3(0, 4.5f, 0);
+      Opponent.transform.position = new Vector3(0, 4.25f, 0);
 
     }
 
@@ -58,7 +58,7 @@ public class Battle_Manager : MonoBehaviour
       }
       Player = new_Player;
       Player.transform.SetParent(gameObject.transform);
-      Player.transform.position = new Vector3(0, 2.5f, 0);
+      Player.transform.position = new Vector3(0, 2.25f, 0);
     }
 
     public GameObject Get_Player(){
@@ -183,7 +183,8 @@ public class Battle_Manager : MonoBehaviour
     }
 
     public void Start_Attack(int target_pos, int move_pos){
-      active_Roguemon.GetComponent<Roguemon_Behaviour>().Use_Move(move_pos);
+      GameObject target = Get_Roguemon(target_pos);
+      active_RoguemonGO.GetComponent<Roguemon_Behaviour>().Use_Move(move_pos, target);
     }
 
     public void Test_Function(){
@@ -197,7 +198,7 @@ public class Battle_Manager : MonoBehaviour
 
       foreach(Transform child in missigno.transform){
         Move_Behaviour move = child.GetComponent(typeof(Move_Behaviour)) as Move_Behaviour;
-        move.Do_Move();
+        move.Do_Move(missigno);
       }
       Debug.Log("sdfdsfds");
       battleUI.loadBattleRoguemon(missigno);
@@ -213,10 +214,26 @@ public class Battle_Manager : MonoBehaviour
       }
     }
 
-    public void Get_Next_Active_Roguemon(){
-      if(active_Roguemon != null)
-        turn_Queue.Enqueue(active_Roguemon);
-      active_Roguemon = turn_Queue.Dequeue();
-      Debug.Log("Its now " + active_Roguemon.name + "s turn!");
+    public void Get_Next_active_RoguemonGO(){
+      if(active_RoguemonGO != null)
+        turn_Queue.Enqueue(active_RoguemonGO);
+      active_RoguemonGO = turn_Queue.Dequeue();
+      Debug.Log("Its now " + active_RoguemonGO.name + "s turn!");
+    }
+
+    public bool Is_Enemy_Of(GameObject roguemon, GameObject potential_enemy){
+      if(Get_Enemies_Position(Get_Position(roguemon)).Contains(Get_Position(potential_enemy))){
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    public bool Is_Ally_Of(GameObject roguemon, GameObject potential_ally){
+      if(Get_Allies_Position(Get_Position(roguemon)).Contains(Get_Position(potential_ally))){
+        return true;
+      }else{
+        return false;
+      }
     }
   }

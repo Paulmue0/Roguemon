@@ -30,7 +30,7 @@ public class Trainer_Behaviour : MonoBehaviour
       for(int i = 0;i < lineup.Length;i++){
         GameObject roguemonGO = lineup[i];
         roguemonGO.transform.SetParent(gameObject.transform);
-        roguemonGO.transform.localPosition = new Vector3(-2.25f + i*2.25f, 0, 0);
+        roguemonGO.transform.localPosition = new Vector3(-1.75f + i*1.75f, 0, 0);
       }
     }
 
@@ -50,6 +50,6 @@ public class Trainer_Behaviour : MonoBehaviour
     }
 
     public void Take_Turn(GameObject roguemonGO){
-        roguemonGO.GetComponent<Roguemon_Behaviour>().Use_Move(0);
+        roguemonGO.GetComponent<Roguemon_Behaviour>().Use_Move(0, roguemonGO);
     }
 }

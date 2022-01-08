@@ -49,9 +49,9 @@ public class Move_Behaviour : MonoBehaviour
 
     // Gets the targeted Roguemon from the Target_Type and then applies all Effects
     // assigned to this move to them.
-    public void Do_Move(){
+    public void Do_Move(GameObject clicked_GO){
       Move_Target_Type Target_Type = GetComponent(typeof(Move_Target_Type)) as Move_Target_Type;
-      List <GameObject> Targets = Target_Type.Choose_Targets();
+      List <GameObject> Targets = Target_Type.Get_Targets(clicked_GO);
 
       Make_Log_Entry();
 
