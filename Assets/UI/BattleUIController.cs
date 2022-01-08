@@ -14,6 +14,7 @@ public class BattleUIController : UIController
     public List<GameObject> movesOfSelectedRoguemon; 
     public List<Label> MoveDescriptors;
     public List<Button> AttackButtons;
+    int selectedAttack;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,13 +38,16 @@ public class BattleUIController : UIController
         // Define dialogLabel
         dialogLabel = root.Q<Label>("DialogLabel");
 
+
+        // shows which attack is currently selected
+        // -1 = no attack is selected
+        // 0-3 represent attack 1-4
+        selectedAttack = -1;
+
         // Define Components for Attack 1
         att_1_button = root.Q<Button>("att-1-button");
-        //att_1_button.text = movesOfSelectedRoguemon[0].name;
         switch_move_description_1 = root.Q<Button>("switch-move-description-1");
-
         att_1_description_label = root.Q<Label>("att-1-description-label");
-        //att_1_description_label.text = movesOfSelectedRoguemon[0].GetComponent<Move_Behaviour>().Get_Move_Description();
 
         // Define Components for Attack 2
         att_2_button = root.Q<Button>("att-2-button");
@@ -79,7 +83,12 @@ public class BattleUIController : UIController
         BUTTON EVENTS
         */
 
-        
+        if(att_1_button != null)
+            att_1_button.clicked += () => {
+                attackButtonPressed(0);
+            };
+
+
         if(att_4_button != null)
            att_4_button.clicked += () => {
                 selectedRoguemon = battleManager.Get_Roguemon(0);
@@ -162,13 +171,20 @@ public class BattleUIController : UIController
         */
     }
     GameObject getSelectedPokemon(){
-            return selectedRoguemon;
-        }
+        return selectedRoguemon;
+    }
 
     public void loadBattleRoguemon(GameObject Roguemon){
-                List<GameObject> moves = Roguemon.GetComponent<Roguemon_Behaviour>().Get_Moves();
-                Debug.Log("Loading: " + Roguemon.name);
-                helper.setAllMoveDescriptors(MoveDescriptors, moves);
-                helper.setAllAttackButtons(AttackButtons, moves);
+        List<GameObject> moves = Roguemon.GetComponent<Roguemon_Behaviour>().Get_Moves();
+        Debug.Log("Loading: " + Roguemon.name);
+        helper.setAllMoveDescriptors(MoveDescriptors, moves);
+        helper.setAllAttackButtons(AttackButtons, moves);
+    }
+
+    private void attackButtonPressed(int targetPos){
+        if(selectedAttack >= 0){
+            battleManager.Start_Attack(targetPos, selectedAttack);
+        }
+
     }
 }
