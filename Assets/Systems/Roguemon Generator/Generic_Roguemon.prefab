@@ -100,7 +100,7 @@ MonoBehaviour:
   Defense: 10
   Speed: 10
   Health: 100
-  Alive: 0
+  Alive: 1
   animator: {fileID: 151969267408561424}
 --- !u!95 &151969267408561424
 Animator:

@@ -56,31 +56,40 @@ public class Roguemon_Behaviour : MonoBehaviour
 
     // Methods
 
-    public void Use_Move(int move_pos){
-      Use_Move(Get_Moves()[move_pos]);
+    public void Use_Move(int move_pos, GameObject targetGO){
+      Use_Move(Get_Moves()[move_pos], targetGO);
     }
 
-    public void Use_Move(GameObject moveGO){
-      animator.SetTrigger("Attack");
-      if(moveGO.transform.parent != transform){
-        throw new ArgumentException("Roguemon can't use move that is not assigned to it (=> child)");
+    public bool Use_Move(GameObject moveGO, GameObject targetGO){
+      if(moveGO.GetComponent<Move_Target_Type>().Valid_Target(targetGO)){
+        animator.SetTrigger("Attack");
+        if(moveGO.transform.parent != transform){
+          throw new ArgumentException("Roguemon can't use move that is not assigned to it (=> child)");
+        }else{
+          StartCoroutine(Use_Move_Coroutine(moveGO, targetGO));
+        }
+        return true;
       }else{
-        moveGO.GetComponent<Move_Behaviour>().Do_Move();
+        return false;
       }
     }
 
-    public void Take_Damage(float amount){
+    // need to be able to delay (in order to wait for the anim)
+    public IEnumerator Use_Move_Coroutine(GameObject moveGO, GameObject targetGO){
+      yield return new WaitForSeconds(.25f);
+      moveGO.GetComponent<Move_Behaviour>().Do_Move(targetGO);
+    }
 
+    public void Take_Damage(float amount){
       float[] stats = Get_Stats();
       stats[3] = stats[3] - amount;
       Set_Stats(stats);
       animator.SetTrigger("Take_Damage");
-
     }
 
     public void Die(){
       if(Alive){
-        animator.SetBool("Alive_Anim_Var", false);
+        animator.SetTrigger("Die");
         Alive = false;
       }
     }

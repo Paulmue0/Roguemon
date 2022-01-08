@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move_Target_Type_Self : Move_Target_Type
+public class Move_Target_Type_All_Enemies : Move_Target_Type
 {
-
   public override string description{
     get{
-      return "Self-targeting";
+      return "Targets all enemies";
     }
   }
 
@@ -17,19 +16,18 @@ public class Move_Target_Type_Self : Move_Target_Type
       Battle_Manager BM = Get_Battle_Manager();
       GameObject this_moves_roguemon = transform.parent.gameObject;
 
-      if(TargetGO == this_moves_roguemon){
-        return true;
-      }else{
-        return false;
-      }
+      return BM.Is_Enemy_Of(this_moves_roguemon, TargetGO);
   }
 
   // This Target Type returns the Roguemon that used the Move.
   public override List <GameObject> Get_Targets(GameObject TargetGO){
     List<GameObject> Targets = new List<GameObject>();
-    Targets.Add(TargetGO);
+    GameObject this_moves_roguemon = transform.parent.gameObject;
+    Battle_Manager BM = Get_Battle_Manager();
+    foreach(int position in BM.Get_Enemies_Position(BM.Get_Position(this_moves_roguemon))){
+      Targets.Add(BM.Get_Roguemon(position));
+    }
 
     return Targets;
   }
-
 }
