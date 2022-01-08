@@ -58,7 +58,6 @@ public class Roguemon_Behaviour : MonoBehaviour
 
     public void Use_Move(int move_pos){
       Use_Move(Get_Moves()[move_pos]);
-      }
     }
 
     public void Use_Move(GameObject moveGO){
