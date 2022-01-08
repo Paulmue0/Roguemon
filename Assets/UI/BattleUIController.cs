@@ -167,9 +167,8 @@ public class BattleUIController : UIController
 
     public void loadBattleRoguemon(GameObject Roguemon){
                 List<GameObject> moves = Roguemon.GetComponent<Roguemon_Behaviour>().Get_Moves();
-                Debug.Log(Roguemon.name);
-                Debug.Log("moomomomomomomin");
-                helper.setAllMoveDescriptors(MoveDescriptors, movesOfSelectedRoguemon);
-                helper.setAllAttackButtons(AttackButtons, movesOfSelectedRoguemon);
+                Debug.Log("Loading: " + Roguemon.name);
+                helper.setAllMoveDescriptors(MoveDescriptors, moves);
+                helper.setAllAttackButtons(AttackButtons, moves);
     }
 }
