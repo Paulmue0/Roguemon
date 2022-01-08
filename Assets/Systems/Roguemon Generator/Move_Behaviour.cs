@@ -6,12 +6,20 @@ public class Move_Behaviour : MonoBehaviour
 {
     // Getter and Setter
 
+    public string Get_Name(){
+      return name;
+    }
+
+    public void Set_Name(string new_name){
+      name = new_name;
+    }
+
     public string Get_Move_Description(){
       List<GameObject> Effects = Get_Effects();
 
       string full_description = "";
       Move_Target_Type mttype = Get_Move_Target_Type();
-      full_description += name + "[" + mttype.description + "]\n";
+      full_description += mttype.description + "]\n";
       foreach(GameObject EffectGO in Effects){
         Effect Effect = EffectGO.GetComponent(typeof(Effect)) as Effect;
         Effect_Target_Type ettype = Effect.Get_Effect_Target_Type();
@@ -47,6 +55,9 @@ public class Move_Behaviour : MonoBehaviour
 
       Make_Log_Entry();
 
+      // trigger the animation in the parent Roguemon
+      transform.parent.gameObject.GetComponent<Animator>().SetTrigger("Attack");
+
       // Check each child of this if it is an effect and if yet, then activate
       // it on the Targets returned by the Target_Type
       foreach (Transform child in transform) {
@@ -62,6 +73,6 @@ public class Move_Behaviour : MonoBehaviour
       string roguemon_name = transform.parent.gameObject.name;
       string move_name = gameObject.name;
 
-      Debug.Log(roguemon_name + " uses " + move_name + "!");
+      //Debug.Log(roguemon_name + " uses " + move_name + "!");
     }
 }

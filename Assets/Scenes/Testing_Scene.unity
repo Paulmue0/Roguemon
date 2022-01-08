@@ -290,13 +290,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &6761508881444206248
+=======
+--- !u!1001 &4841354830712483703
+>>>>>>> roguemon_basics
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 6761508879930927403, guid: 71a3b4525ae5f4e479eb88c0f5229970, type: 3}
       propertyPath: m_Name
       value: Battle_Manager
@@ -347,3 +352,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71a3b4525ae5f4e479eb88c0f5229970, type: 3}
+=======
+    - target: {fileID: 4841354829063450864, guid: 1c85f5a69c90dcad0817ef00b27b45e0, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841354829063450864, guid: 1c85f5a69c90dcad0817ef00b27b45e0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841354829063450864, guid: 1c85f5a69c90dcad0817ef00b27b45e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841354829063450864, guid: 1c85f5a69c90dcad0817ef00b27b45e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841354829063450864, guid: 1c85f5a69c90dcad0817ef00b27b45e0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841354829063450864, guid: 1c85f5a69c90dcad0817ef00b27b45e0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841354829063450864, guid: 1c85f5a69c90dcad0817ef00b27b45e0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841354829063450864, guid: 1c85f5a69c90dcad0817ef00b27b45e0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841354829063450864, guid: 1c85f5a69c90dcad0817ef00b27b45e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841354829063450864, guid: 1c85f5a69c90dcad0817ef00b27b45e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841354829063450864, guid: 1c85f5a69c90dcad0817ef00b27b45e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4841354829063450868, guid: 1c85f5a69c90dcad0817ef00b27b45e0, type: 3}
+      propertyPath: m_Name
+      value: Battle_Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c85f5a69c90dcad0817ef00b27b45e0, type: 3}
+>>>>>>> roguemon_basics

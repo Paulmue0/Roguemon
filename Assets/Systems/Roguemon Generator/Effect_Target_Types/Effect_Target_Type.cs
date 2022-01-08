@@ -12,6 +12,13 @@ public abstract class Effect_Target_Type : MonoBehaviour
   public Effect_Target_Type(){
   }
 
+  // Getter and Setter
+  // returns the Battle Manager Component that this effect is assigned to
+  // (via effect -> move -> roguemon -> trainer -> battle)
+  public Battle_Manager Get_Battle_Manager(){
+    return transform.parent.parent.parent.parent.gameObject.GetComponent<Battle_Manager>() as Battle_Manager;
+  }
+
   // Based on a list of Roguemon that are targeted by the assigned move, this function
   // returns a list of Roguemon that the effect should affect. Must be overwritten
   // by derived classes.

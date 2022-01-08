@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Move_Target_Type_Self : Move_Target_Type
 {
+
   public override string description{
     get{
       return "Self-targeting";

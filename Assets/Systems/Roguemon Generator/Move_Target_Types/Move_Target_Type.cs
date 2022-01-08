@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Move_Target_Type : MonoBehaviour
 {
+
   public abstract string description{
     get;
   }

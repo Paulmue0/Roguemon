@@ -1,6 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
 --- !u!1 &6761508879930927403
+=======
+--- !u!1 &4841354829063450868
+>>>>>>> roguemon_basics
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +12,19 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 6761508879930927407}
   - component: {fileID: 6761508879930927406}
   - component: {fileID: 6761508879930927392}
   - component: {fileID: 6761508879930927404}
   - component: {fileID: 6761508879930927405}
+=======
+  - component: {fileID: 4841354829063450864}
+  - component: {fileID: 4841354829063450865}
+  - component: {fileID: 4841354829063450879}
+  - component: {fileID: 4841354829063450867}
+  - component: {fileID: 4841354829063450866}
+>>>>>>> roguemon_basics
   m_Layer: 0
   m_Name: Battle_Manager
   m_TagString: Untagged
@@ -20,13 +32,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &6761508879930927407
+=======
+--- !u!4 &4841354829063450864
+>>>>>>> roguemon_basics
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 6761508879930927403}
+=======
+  m_GameObject: {fileID: 4841354829063450868}
+>>>>>>> roguemon_basics
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,58 +54,99 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!114 &6761508879930927406
+=======
+--- !u!114 &4841354829063450865
+>>>>>>> roguemon_basics
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 6761508879930927403}
+=======
+  m_GameObject: {fileID: 4841354829063450868}
+>>>>>>> roguemon_basics
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 878b8574cc97113f1bf7e60e2595b624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Trainer_Generator: {fileID: 6761508879930927392}
   Roguemon_Generator: {fileID: 6761508879930927404}
   Move_Generator: {fileID: 6761508879930927405}
   Player: {fileID: 0}
   Opponent: {fileID: 0}
 --- !u!114 &6761508879930927392
+=======
+  Trainer_Generator: {fileID: 4841354829063450879}
+  Roguemon_Generator: {fileID: 4841354829063450867}
+  Move_Generator: {fileID: 4841354829063450866}
+  Player: {fileID: 0}
+  Opponent: {fileID: 0}
+--- !u!114 &4841354829063450879
+>>>>>>> roguemon_basics
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 6761508879930927403}
+=======
+  m_GameObject: {fileID: 4841354829063450868}
+>>>>>>> roguemon_basics
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9768e53434a5fde2d8b4f943a21207f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Roguemon_Generator: {fileID: 6761508879930927404}
   Generic_Trainer: {fileID: 7825827448700023754, guid: 55f6105e60540a356906a3a7d07d63bc, type: 3}
 --- !u!114 &6761508879930927404
+=======
+  Roguemon_Generator: {fileID: 4841354829063450867}
+  Generic_Trainer: {fileID: 7825827448700023754, guid: 55f6105e60540a356906a3a7d07d63bc, type: 3}
+--- !u!114 &4841354829063450867
+>>>>>>> roguemon_basics
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 6761508879930927403}
+=======
+  m_GameObject: {fileID: 4841354829063450868}
+>>>>>>> roguemon_basics
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b99736ec3a9a3c31d88b4020f216fdba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Move_Generator: {fileID: 6761508879930927405}
   Generic_Roguemon: {fileID: 8110170015360156167, guid: 4e76decc17fb3170ca85e993a3511543, type: 3}
 --- !u!114 &6761508879930927405
+=======
+  Move_Generator: {fileID: 4841354829063450866}
+  Generic_Roguemon: {fileID: 8110170015360156167, guid: 4e76decc17fb3170ca85e993a3511543, type: 3}
+--- !u!114 &4841354829063450866
+>>>>>>> roguemon_basics
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 6761508879930927403}
+=======
+  m_GameObject: {fileID: 4841354829063450868}
+>>>>>>> roguemon_basics
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25566ba3dbee7c099a82a0927dfa332e, type: 3}

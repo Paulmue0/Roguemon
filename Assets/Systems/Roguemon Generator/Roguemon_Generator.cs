@@ -19,8 +19,8 @@ public class Roguemon_Generator : MonoBehaviour
     public GameObject Generate_Missigno(){
       GameObject New_Roguemon = Instantiate(Generic_Roguemon);
       New_Roguemon.name = "Missigno";
-      Move_Generator.Generate_Effect(Move_Generator.Generate_Generic_Move(New_Roguemon.transform).transform, "Effect_Damage", "Effect_Target_Type_Same_As_Target");
-      
+      Move_Generator.Generate_Effect(Move_Generator.Generate_Generic_Move(New_Roguemon.transform).transform, "Effect_Damage", "Effect_Target_Type_Opposing");
+
       return New_Roguemon;
     }
 }
