@@ -54,22 +54,38 @@ public class Roguemon_Behaviour : MonoBehaviour
       return Moves;
     }
 
+    public bool Is_Alive(){
+      return Alive;
+    }
+
     // Methods
 
+    // uses a move on a target (move is given as int)
     public void Use_Move(int move_pos, GameObject targetGO){
       Use_Move(Get_Moves()[move_pos], targetGO);
     }
 
+    // checks if a target is valid for a move (move is given as int)
+    public bool Is_Valid_Move(int move_pos, GameObject targetGO){
+      return Is_Valid_Move(Get_Moves()[move_pos], targetGO);
+    }
+
+    // checks if a target is valid for a move (move is given as GameObject)
+    public bool Is_Valid_Move(GameObject moveGO, GameObject targetGO){
+      return moveGO.GetComponent<Move_Target_Type>().Valid_Target(targetGO);
+    }
+
+    // uses a move on a target (move is given as GameObject)
     public bool Use_Move(GameObject moveGO, GameObject targetGO){
-      if(moveGO.GetComponent<Move_Target_Type>().Valid_Target(targetGO)){
+      if(Is_Valid_Move(moveGO, targetGO)){
         animator.SetTrigger("Attack");
         if(moveGO.transform.parent != transform){
           throw new ArgumentException("Roguemon can't use move that is not assigned to it (=> child)");
-        }else{
+        } else {
           StartCoroutine(Use_Move_Coroutine(moveGO, targetGO));
         }
         return true;
-      }else{
+      } else {
         return false;
       }
     }
@@ -92,10 +108,6 @@ public class Roguemon_Behaviour : MonoBehaviour
         animator.SetTrigger("Die");
         Alive = false;
       }
-    }
-
-    public bool Is_Alive(){
-      return Alive;
     }
 
 }

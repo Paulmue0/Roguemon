@@ -16,8 +16,7 @@ public class Battle_Manager : MonoBehaviour
 
    private GameObject active_RoguemonGO;
    private Queue<GameObject> turn_Queue;
-
-   private
+   private bool players_turn;
 
     // Start is called before the first frame update
     void Start()
@@ -26,15 +25,18 @@ public class Battle_Manager : MonoBehaviour
       Set_Opponent(Trainer_Generator.Generate_Test_Trainer("Opponent"));
       Setup_Turn_Queue();
 
-      StartCoroutine(Gameloop());
+      StartCoroutine(Next_Turn());
     }
 
-    IEnumerator Gameloop(){
+    IEnumerator Next_Turn(){
       if(Battle_Over_Check() == 0){
-        Get_Next_active_RoguemonGO();
-        Get_Trainer(active_RoguemonGO).GetComponent<Trainer_Behaviour>().Take_Turn(active_RoguemonGO);
-        yield return new WaitForSeconds(.25f);
-        StartCoroutine(Gameloop());
+        Set_Next_Active_RoguemonGO();
+        if(!players_turn){
+          yield return new WaitForSeconds(.5f);
+          Opponent.GetComponent<Trainer_Behaviour>().Take_Turn(active_RoguemonGO);
+          yield return new WaitForSeconds(.25f);
+          StartCoroutine(Next_Turn());
+        }
       }else{
         Debug.Log("Game Over!");
       }
@@ -69,11 +71,23 @@ public class Battle_Manager : MonoBehaviour
       return Player;
     }
 
-    public GameObject Get_Trainer(GameObject roguemonGO){
-      if(Get_Position(roguemonGO) > 2){
+    public GameObject Get_Active_Roguemon(){
+      return active_RoguemonGO;
+    }
+
+    public GameObject Get_Trainer_Of(GameObject roguemonGO){
+      if(Get_Position(roguemonGO) < 3){
         return Player;
       }else{
         return Opponent;
+      }
+    }
+
+    public bool Belongs_To_Player(GameObject roguemonGO){
+      if(Get_Trainer_Of(roguemonGO) == Player){
+        return true;
+      }else{
+        return false;
       }
     }
 
@@ -186,16 +200,28 @@ public class Battle_Manager : MonoBehaviour
       return roguemons;
     }
 
+    //
     public void Start_Attack(int target_pos, int move_pos){
-      GameObject target = Get_Roguemon(target_pos);
-      active_RoguemonGO.GetComponent<Roguemon_Behaviour>().Use_Move(move_pos, target);
+      if(Is_Valid_Move(target_pos, move_pos)){
+        GameObject target = Get_Roguemon(target_pos);
+        active_RoguemonGO.GetComponent<Roguemon_Behaviour>().Use_Move(move_pos, target);
+        StartCoroutine(Next_Turn());
+      }
     }
 
+    public bool Is_Valid_Move(int target_pos, int move_pos){
+      GameObject target = Get_Roguemon(target_pos);
+      return active_RoguemonGO.GetComponent<Roguemon_Behaviour>().Is_Valid_Move(move_pos, target);
+    }
+
+    // creates a turn queue from the two trainer lineups. TODO: Make it depend on speed stat
     public void Setup_Turn_Queue(){
       GameObject[] player_lineup = Player.GetComponent<Trainer_Behaviour>().Get_Lineup();
       GameObject[] opponent_lineup = Opponent.GetComponent<Trainer_Behaviour>().Get_Lineup();
       turn_Queue = new Queue<GameObject>();
       for(int i=0; i< 3;i++){
+        player_lineup[i].name += "P" + i.ToString(); // TODO: Remove renaming
+        opponent_lineup[i].name += "O" + i.ToString(); //
         turn_Queue.Enqueue(player_lineup[i]);
         turn_Queue.Enqueue(opponent_lineup[i]);
       }
@@ -206,7 +232,6 @@ public class Battle_Manager : MonoBehaviour
       Queue<GameObject> temp_Queue = new Queue<GameObject>();
 
       while (turn_Queue.Count > 0){
-        Debug.Log("turn queue len: " + turn_Queue.Count.ToString());
         GameObject current_roguemon = turn_Queue.Dequeue();
         if(current_roguemon.GetComponent<Roguemon_Behaviour>().Is_Alive()){
           temp_Queue.Enqueue(current_roguemon);
@@ -246,11 +271,16 @@ public class Battle_Manager : MonoBehaviour
     }
 
     // sets active_roguemon to the next one in the turn queue
-    public void Get_Next_active_RoguemonGO(){
+    public void Set_Next_Active_RoguemonGO(){
       Check_Turn_Queue();
       if(active_RoguemonGO != null)
         turn_Queue.Enqueue(active_RoguemonGO);
       active_RoguemonGO = turn_Queue.Dequeue();
+      if(Get_Trainer_Of(active_RoguemonGO) == Player){
+        players_turn = true;
+      } else {
+        players_turn = false;
+      }
       Debug.Log("Its now " + active_RoguemonGO.name + "s turn!");
     }
 
@@ -263,7 +293,7 @@ public class Battle_Manager : MonoBehaviour
       }
     }
 
-        // takes two roguemon and returns true if they belong to the same trainer
+      // takes two roguemon and returns true if they belong to the same trainer
     public bool Is_Ally_Of(GameObject roguemon, GameObject potential_ally){
       if(Get_Allies_Position(Get_Position(roguemon)).Contains(Get_Position(potential_ally))){
         return true;
