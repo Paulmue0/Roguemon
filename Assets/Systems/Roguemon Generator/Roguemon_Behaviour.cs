@@ -94,4 +94,8 @@ public class Roguemon_Behaviour : MonoBehaviour
       }
     }
 
+    public bool Is_Alive(){
+      return Alive;
+    }
+
 }

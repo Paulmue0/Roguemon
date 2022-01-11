@@ -30,10 +30,14 @@ public class Battle_Manager : MonoBehaviour
     }
 
     IEnumerator Gameloop(){
-      Get_Next_active_RoguemonGO();
-      Get_Trainer(active_RoguemonGO).GetComponent<Trainer_Behaviour>().Take_Turn(active_RoguemonGO);
-      yield return new WaitForSeconds(.25f);
-      StartCoroutine(Gameloop());
+      if(Battle_Over_Check() == 0){
+        Get_Next_active_RoguemonGO();
+        Get_Trainer(active_RoguemonGO).GetComponent<Trainer_Behaviour>().Take_Turn(active_RoguemonGO);
+        yield return new WaitForSeconds(.25f);
+        StartCoroutine(Gameloop());
+      }else{
+        Debug.Log("Game Over!");
+      }
     }
 
     // Getter and Setter
@@ -187,23 +191,6 @@ public class Battle_Manager : MonoBehaviour
       active_RoguemonGO.GetComponent<Roguemon_Behaviour>().Use_Move(move_pos, target);
     }
 
-    public void Test_Function(){
-      GameObject missigno = Roguemon_Generator.Generate_Missigno();
-
-      Roguemon_Behaviour missigno_rb = missigno.GetComponent(typeof(Roguemon_Behaviour)) as Roguemon_Behaviour;
-      foreach(GameObject moveGO in missigno_rb.Get_Moves()){
-        Move_Behaviour move = moveGO.GetComponent(typeof(Move_Behaviour)) as Move_Behaviour;
-        Debug.Log(move.Get_Move_Description());
-      }
-
-      foreach(Transform child in missigno.transform){
-        Move_Behaviour move = child.GetComponent(typeof(Move_Behaviour)) as Move_Behaviour;
-        move.Do_Move(missigno);
-      }
-      Debug.Log("sdfdsfds");
-      battleUI.loadRoguemonInBattleUI(missigno);
-    }
-
     public void Setup_Turn_Queue(){
       GameObject[] player_lineup = Player.GetComponent<Trainer_Behaviour>().Get_Lineup();
       GameObject[] opponent_lineup = Opponent.GetComponent<Trainer_Behaviour>().Get_Lineup();
@@ -214,13 +201,60 @@ public class Battle_Manager : MonoBehaviour
       }
     }
 
+    // checks if there are dead roguemon in the queue, if there are removes them
+    public void Check_Turn_Queue(){
+      Queue<GameObject> temp_Queue = new Queue<GameObject>();
+
+      while (turn_Queue.Count > 0){
+        Debug.Log("turn queue len: " + turn_Queue.Count.ToString());
+        GameObject current_roguemon = turn_Queue.Dequeue();
+        if(current_roguemon.GetComponent<Roguemon_Behaviour>().Is_Alive()){
+          temp_Queue.Enqueue(current_roguemon);
+        }
+      }
+
+      while (temp_Queue.Count > 0){
+        turn_Queue.Enqueue(temp_Queue.Dequeue());
+      }
+    }
+
+    // checks if all roguemon of one trainer are dead. Returns 1 for player wins, -1 for player loses and 0 for neither.
+    public int Battle_Over_Check(){
+      GameObject[] player_lineup = Player.GetComponent<Trainer_Behaviour>().Get_Lineup();
+      bool one_player_roguemon_still_alive = false;
+      for(int i = 0; i < player_lineup.Length; i++){
+        one_player_roguemon_still_alive = one_player_roguemon_still_alive || player_lineup[i].GetComponent<Roguemon_Behaviour>().Is_Alive();
+      }
+
+      GameObject[] opponent_lineup = Opponent.GetComponent<Trainer_Behaviour>().Get_Lineup();
+      bool one_opponent_roguemon_still_alive = false;
+      for(int i = 0; i < opponent_lineup.Length; i++){
+        one_opponent_roguemon_still_alive = one_opponent_roguemon_still_alive || opponent_lineup[i].GetComponent<Roguemon_Behaviour>().Is_Alive();
+      }
+
+      if(one_player_roguemon_still_alive && one_opponent_roguemon_still_alive){
+        return 0;
+      } else if(one_opponent_roguemon_still_alive){
+        Debug.Log("Player loses!");
+        return -1;
+      } else if(one_player_roguemon_still_alive){
+        Debug.Log("Player wins!");
+        return 1;
+      } else {
+        return -1;
+      }
+    }
+
+    // sets active_roguemon to the next one in the turn queue
     public void Get_Next_active_RoguemonGO(){
+      Check_Turn_Queue();
       if(active_RoguemonGO != null)
         turn_Queue.Enqueue(active_RoguemonGO);
       active_RoguemonGO = turn_Queue.Dequeue();
       Debug.Log("Its now " + active_RoguemonGO.name + "s turn!");
     }
 
+    // takes two roguemon and returns true if they belong to opposing trainers
     public bool Is_Enemy_Of(GameObject roguemon, GameObject potential_enemy){
       if(Get_Enemies_Position(Get_Position(roguemon)).Contains(Get_Position(potential_enemy))){
         return true;
@@ -229,6 +263,7 @@ public class Battle_Manager : MonoBehaviour
       }
     }
 
+        // takes two roguemon and returns true if they belong to the same trainer
     public bool Is_Ally_Of(GameObject roguemon, GameObject potential_ally){
       if(Get_Allies_Position(Get_Position(roguemon)).Contains(Get_Position(potential_ally))){
         return true;
