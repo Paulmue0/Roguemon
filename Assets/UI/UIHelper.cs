@@ -24,7 +24,6 @@ public class UIHelper : MonoBehaviour
                     else
                         label.text = moveDescription;
         }
-        
     }
 
     public void setAllMoveDescriptors(List<Label> moveDescriptors, List<GameObject> moves){
@@ -43,6 +42,7 @@ public class UIHelper : MonoBehaviour
             int i = 0;
             foreach(GameObject move in moves){
                 attackButtons[i].text = move.name;
+                attackButtons[i].style.backgroundColor = Color.grey;
                 i++;
             }
 
