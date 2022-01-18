@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Effect_Target_Type : MonoBehaviour
 {
+  public float strength_multiplier = 1;
+
   public abstract string description{
     get;
   }

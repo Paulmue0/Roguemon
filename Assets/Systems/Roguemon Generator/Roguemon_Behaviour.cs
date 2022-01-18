@@ -13,6 +13,7 @@ public class Roguemon_Behaviour : MonoBehaviour
 
    public bool Alive = true;
 
+   public List<GameObject> status_effects = new List<GameObject>();
    public Animator animator;
 
     // Constructor
@@ -45,6 +46,15 @@ public class Roguemon_Behaviour : MonoBehaviour
       }
     }
 
+    public void Add_Status_Effect(GameObject new_status_effect){
+      status_effects.Add(new_status_effect);
+      new_status_effect.transform.parent = transform;
+    }
+
+    public void Remove_Status_Effect(GameObject new_status_effect){
+      status_effects.Remove(new_status_effect);
+    }
+
     // returns list of all children GameObjects with component of type Move_Behaviour
     public List<GameObject> Get_Moves(){
       List<GameObject> Moves = new List<GameObject>();
@@ -59,10 +69,10 @@ public class Roguemon_Behaviour : MonoBehaviour
     }
 
     // Methods
-
-    // uses a move on a target (move is given as int)
-    public void Use_Move(int move_pos, GameObject targetGO){
-      Use_Move(Get_Moves()[move_pos], targetGO);
+    public void Trigger_Status_Effects(){
+      foreach(GameObject status_effect in status_effects){
+        status_effect.GetComponent<Status_Effect_Behaviour>().Tick_Down();
+      }
     }
 
     // checks if a target is valid for a move (move is given as int)
@@ -73,6 +83,11 @@ public class Roguemon_Behaviour : MonoBehaviour
     // checks if a target is valid for a move (move is given as GameObject)
     public bool Is_Valid_Move(GameObject moveGO, GameObject targetGO){
       return moveGO.GetComponent<Move_Target_Type>().Valid_Target(targetGO);
+    }
+
+    // uses a move on a target (move is given as int)
+    public void Use_Move(int move_pos, GameObject targetGO){
+      Use_Move(Get_Moves()[move_pos], targetGO);
     }
 
     // uses a move on a target (move is given as GameObject)
@@ -93,7 +108,7 @@ public class Roguemon_Behaviour : MonoBehaviour
     // need to be able to delay (in order to wait for the anim)
     public IEnumerator Use_Move_Coroutine(GameObject moveGO, GameObject targetGO){
       yield return new WaitForSeconds(.25f);
-      moveGO.GetComponent<Move_Behaviour>().Do_Move(targetGO);
+      moveGO.GetComponent<Move_Behaviour>().Do_Move(targetGO, this.Damage);
     }
 
     public void Take_Damage(float amount){

@@ -10,7 +10,7 @@ public class Effect_Generic : Effect
     }
   }
 
-  public override void Apply_Effect(GameObject Affected){
+  public override void Apply_Effect(GameObject Affected, float strength_so_far){
     Debug.Log("Nothing happened to " + Affected.name);
   }
 }

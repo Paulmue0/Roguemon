@@ -282,6 +282,8 @@ public class Battle_Manager : MonoBehaviour
         players_turn = false;
       }
       Debug.Log("Its now " + active_RoguemonGO.name + "s turn!");
+      active_RoguemonGO.GetComponent<Roguemon_Behaviour>().Trigger_Status_Effects();
+      //battleUI. TODO: Tell UI the next active roguemon
     }
 
     // takes two roguemon and returns true if they belong to opposing trainers
