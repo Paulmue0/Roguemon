@@ -135,60 +135,24 @@ public class BattleUIController : UIController
         if (switch_move_description_1 != null)
             
                 switch_move_description_1.clicked += () => {
-                    try
-                    {
-                        helper.switchMoveDescription(movesOfSelectedRoguemon[0].GetComponent<Move_Behaviour>().Get_Move_Description(), att_1_description_label);
-  
-                    }
-                    catch (System.ArgumentOutOfRangeException)
-                    {
-                        
-                        Debug.Log("Roguemon apparently does not have a move in this slot");
-                    }
+                   switchMoves(0);
                 };
 
         if (switch_move_description_2 != null)
             
                 switch_move_description_2.clicked += () => {
-                    try
-                    {
-                        helper.switchMoveDescription(movesOfSelectedRoguemon[1].GetComponent<Move_Behaviour>().Get_Move_Description(), att_2_description_label);
-  
-                    }
-                    catch (System.ArgumentOutOfRangeException)
-                    {
-                        
-                        Debug.Log("Roguemon apparently does not have a move in this slot");
-                    }
+                    switchMoves(1);
                 };
 
         if (switch_move_description_3 != null)
             
                 switch_move_description_3.clicked += () => {
-                    try
-                    {
-                        helper.switchMoveDescription(movesOfSelectedRoguemon[2].GetComponent<Move_Behaviour>().Get_Move_Description(), att_3_description_label);
-  
-                    }
-                    catch (System.ArgumentOutOfRangeException)
-                    {
-                        
-                        Debug.Log("Roguemon apparently does not have a move in this slot");
-                    }
+                    switchMoves(2);  
                 };
         if (switch_move_description_4 != null)
             
                 switch_move_description_4.clicked += () => {
-                    try
-                    {
-                        helper.switchMoveDescription(movesOfSelectedRoguemon[3].GetComponent<Move_Behaviour>().Get_Move_Description(), att_4_description_label);
-  
-                    }
-                    catch (System.ArgumentOutOfRangeException)
-                    {
-                        
-                        Debug.Log("Roguemon apparently does not have a move in this slot");
-                    }
+                    switchMoves(3);
                 };
         
 
@@ -211,6 +175,7 @@ public class BattleUIController : UIController
         Debug.Log("Loading: " + Roguemon.name);
         helper.setAllMoveDescriptors(MoveDescriptors, moves);
         helper.setAllAttackButtons(AttackButtons, moves);
+        selectedRoguemon =  Roguemon;
     }
 
     private void RoguemonButtonPressed(int targetPos){
@@ -237,7 +202,19 @@ public class BattleUIController : UIController
                 AttackButtons[selectedAttack].style.backgroundColor = Color.grey;
             selectedAttack = movePos;
             AttackButtons[movePos].style.backgroundColor = Color.red;
+        }     
+    }
+
+    private void switchMoves(int moveLabelPos){
+        try
+        {
+        //helper.switchMoveDescription(selectedRoguemon.GetComponent<Roguemon_Behaviour>().Get_Moves()[moveLabelPos].GetComponent<Move_Behaviour>().Get_Move_Description(), MoveDescriptors[moveLabelPos]);
+        helper.switchMoveDescription(MoveDescriptors[moveLabelPos]); 
         }
-            
+        catch (System.ArgumentOutOfRangeException)
+        {   
+            Debug.Log("Roguemon apparently does not have a move in this slot");
+        }
+
     }
 }

@@ -17,13 +17,11 @@ public class UIHelper : MonoBehaviour
         }
     }
 
-    public void switchMoveDescription(string moveDescription, Label label){
-        if(moveDescription != null){
-            if(label.text != "")
-                        label.text = "";
-                    else
-                        label.text = moveDescription;
-        }
+    public void switchMoveDescription(Label label){
+            if (label.style.display == DisplayStyle.Flex)
+                label.style.display = DisplayStyle.None;
+            else
+                label.style.display = DisplayStyle.Flex;
     }
 
     public void setAllMoveDescriptors(List<Label> moveDescriptors, List<GameObject> moves){
