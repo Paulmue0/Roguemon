@@ -31,42 +31,44 @@
             <ui:Label text="Test Dialog..." display-tooltip-when-elided="true" name="DialogLabel" />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement style="width: 100%; height: 50%; align-items: flex-start; justify-content: flex-start; flex-grow: 1; -unity-text-align: middle-left; -unity-background-scale-mode: stretch-to-fill;">
-        <ui:VisualElement style="flex-direction: column;">
-            <ui:VisualElement style="flex-direction: row;">
-                <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-1-button" class="not-clicked-style" />
-                <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-1" />
+    <ui:VisualElement style="width: 100%; height: 50%; align-items: flex-start; justify-content: flex-start; flex-grow: 1; -unity-text-align: middle-left; -unity-background-scale-mode: stretch-to-fill; flex-wrap: wrap;">
+        <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" show-horizontal-scroller="false" show-vertical-scroller="false" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" style="align-items: flex-start; flex-direction: column; flex-grow: 1;">
+            <ui:VisualElement style="flex-direction: column; flex-wrap: wrap; max-width: 100%; justify-content: center;">
+                <ui:VisualElement style="flex-direction: row; flex-basis: auto; height: auto; max-width: 100%;">
+                    <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-1-button" class="not-clicked-style" style="white-space: normal; width: 60%; height: auto; -unity-text-align: middle-center; flex-wrap: wrap; overflow: hidden; visibility: visible; display: flex; align-items: stretch; justify-content: flex-start;" />
+                    <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-1" style="white-space: normal;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="test" style="flex-basis: auto; max-width: 100%;">
+                    <ui:Label text="description" display-tooltip-when-elided="true" name="att-1-description-label" enable-rich-text="true" style="flex-shrink: 1; max-width: 100%; overflow: visible; display: flex; visibility: visible; flex-direction: column; align-items: stretch; white-space: normal; -unity-text-align: middle-left;" />
+                </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="test">
-                <ui:Label text="description" display-tooltip-when-elided="true" name="att-1-description-label" style="flex-shrink: 1;" />
+            <ui:VisualElement style="flex-direction: column; width: 100%; max-width: 100%; flex-wrap: wrap;">
+                <ui:VisualElement style="flex-direction: row; height: auto;">
+                    <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-2-button" class="not-clicked-style" style="white-space: normal;" />
+                    <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-2" style="white-space: normal;" />
+                </ui:VisualElement>
+                <ui:VisualElement>
+                    <ui:Label text="description" display-tooltip-when-elided="true" name="att-2-description-label" style="white-space: normal; flex-shrink: 1;" />
+                </ui:VisualElement>
             </ui:VisualElement>
-        </ui:VisualElement>
-        <ui:VisualElement style="flex-direction: column;">
-            <ui:VisualElement style="flex-direction: row;">
-                <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-2-button" class="not-clicked-style" />
-                <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-2" />
+            <ui:VisualElement style="flex-direction: column; display: flex;">
+                <ui:VisualElement style="flex-direction: row;">
+                    <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-3-button" class="not-clicked-style" style="-unity-text-align: middle-center; white-space: normal;" />
+                    <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-3" style="white-space: normal;" />
+                </ui:VisualElement>
+                <ui:VisualElement>
+                    <ui:Label text="description" display-tooltip-when-elided="true" name="att-3-description-label" style="white-space: normal;" />
+                </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement>
-                <ui:Label text="description" display-tooltip-when-elided="true" name="att-2-description-label" />
+            <ui:VisualElement style="flex-direction: column;">
+                <ui:VisualElement style="flex-direction: row;">
+                    <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-4-button" class="not-clicked-style" style="-unity-text-align: middle-center; white-space: normal;" />
+                    <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-4" style="white-space: normal;" />
+                </ui:VisualElement>
+                <ui:VisualElement>
+                    <ui:Label text="description" display-tooltip-when-elided="true" name="att-4-description-label" style="white-space: normal;" />
+                </ui:VisualElement>
             </ui:VisualElement>
-        </ui:VisualElement>
-        <ui:VisualElement style="flex-direction: column;">
-            <ui:VisualElement style="flex-direction: row;">
-                <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-3-button" style="-unity-text-align: middle-center;" />
-                <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-3" />
-            </ui:VisualElement>
-            <ui:VisualElement>
-                <ui:Label text="description" display-tooltip-when-elided="true" name="att-3-description-label" />
-            </ui:VisualElement>
-        </ui:VisualElement>
-        <ui:VisualElement style="flex-direction: column;">
-            <ui:VisualElement style="flex-direction: row;">
-                <ui:Button text="Attack" display-tooltip-when-elided="true" name="att-4-button" style="-unity-text-align: middle-center;" />
-                <ui:Button text="switch" display-tooltip-when-elided="true" name="switch-move-description-4" />
-            </ui:VisualElement>
-            <ui:VisualElement>
-                <ui:Label text="description" display-tooltip-when-elided="true" name="att-4-description-label" />
-            </ui:VisualElement>
-        </ui:VisualElement>
+        </ui:ScrollView>
     </ui:VisualElement>
 </ui:UXML>

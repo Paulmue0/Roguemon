@@ -1,3 +1,4 @@
 .not-clicked-style {
     -unity-text-align: middle-center;
+    width: 60%;
 }
