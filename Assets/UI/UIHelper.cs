@@ -48,5 +48,7 @@ public class UIHelper : MonoBehaviour
 
     }
 
+// TODO: write function that writes into he dialog box 
+//       will be called from battleManager
     
 }
