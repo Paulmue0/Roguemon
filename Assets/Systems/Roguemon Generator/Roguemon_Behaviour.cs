@@ -111,6 +111,12 @@ public class Roguemon_Behaviour : MonoBehaviour
       moveGO.GetComponent<Move_Behaviour>().Do_Move(targetGO, this.Damage);
     }
 
+    public void Heal(float amount){
+      float[] stats = Get_Stats();
+      stats[3] = stats[3] + amount;
+      Set_Stats(stats);
+    }
+
     public void Take_Damage(float amount){
       float[] stats = Get_Stats();
       stats[3] = stats[3] - amount;

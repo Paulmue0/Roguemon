@@ -4,15 +4,28 @@ using UnityEngine;
 
 public abstract class Status_Effect_Behaviour : MonoBehaviour
 {
-    public float strength;
-    public float strength_multiplier = 1;
+
     public int duration;
     public GameObject roguemonGO; // the affected roguemon
-    public string description = "Does nothing each turn!";
-    public string status_effect_name = "Generic Status Effect";
+
+    public float strength{
+      get;set;
+    }
+
+    public abstract float strength_multiplier{
+      get;
+    }
+
+    public abstract string description{
+      get;
+    }
+
+    public abstract string status_effect_name{
+      get;
+    }
 
     // Called when the effect is initialy applied. If child classes overwrite this, they should
-    // call the parent method at the end.
+    // call the parent method at the start.
     public virtual void Initialize_Status_Effect(GameObject target, int initial_duration, float strength_so_far){
       duration = initial_duration;
       strength = strength_so_far * strength_multiplier;
