@@ -15,9 +15,9 @@ public class Move_Generator : MonoBehaviour
 
     private string[] effect_lists = new string[]{
       "Effect_Apply_Poison",
-      "Effect_Damage",
-      "Effect_Regeneration",
-      "Effect_Apply_Slow"
+      "Effect_Apply_Regeneration",
+      "Effect_Apply_Slow",
+      "Effect_Damage"
     };
 
     private string[] effect_target_types_lists = new string[]{
