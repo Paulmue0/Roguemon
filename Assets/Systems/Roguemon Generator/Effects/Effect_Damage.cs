@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class Effect_Damage : Effect
 {
-  public float strength = 30;
 
   public override string description{
     get{
-      return "Does damage";
+      return "Does damage to";
     }
   }
 
-  public override void Apply_Effect(GameObject Affected){
+  public override void Apply_Effect(GameObject Affected, float strength_so_far){
     Roguemon_Behaviour affected_roguemon =  Affected.GetComponent(typeof(Roguemon_Behaviour)) as Roguemon_Behaviour;
-    affected_roguemon.Take_Damage(strength);
+    affected_roguemon.Take_Damage(strength_so_far);
   }
 }
