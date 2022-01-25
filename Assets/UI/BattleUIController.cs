@@ -15,6 +15,10 @@ public class BattleUIController : UIController
     public List<GameObject> movesOfSelectedRoguemon; 
     public List<Label> MoveDescriptors;
     public List<Button> AttackButtons;
+
+    // shows which attack is currently selected
+        // -1 = no attack is selected
+        // 0-3 represent attack 1-4
     int selectedAttack;
 
     // Start is called before the first frame update
@@ -43,9 +47,7 @@ public class BattleUIController : UIController
         // Define dialogLabel
         dialogLabel = root.Q<Label>("DialogLabel");
 
-        // shows which attack is currently selected
-        // -1 = no attack is selected
-        // 0-3 represent attack 1-4
+        // TODO: not necesarry at this point?
         selectedAttack = -1;
 
         // Define Components for Attack 1
@@ -174,8 +176,9 @@ public class BattleUIController : UIController
         List<GameObject> moves = Roguemon.GetComponent<Roguemon_Behaviour>().Get_Moves();
         Debug.Log("Loading: " + Roguemon.name);
         helper.setAllMoveDescriptors(MoveDescriptors, moves);
-        helper.setAllAttackButtons(AttackButtons, moves);
+        helper.setAllAttackButtons(AttackButtons, moves, battleManager.Is_Active_Roguemon(Roguemon));
         selectedRoguemon =  Roguemon;
+        selectedAttack = -1;
     }
 
     private void RoguemonButtonPressed(int targetPos){
@@ -190,19 +193,26 @@ public class BattleUIController : UIController
     }
 
     private void attackButtonPressed(int movePos){
-        if(selectedAttack == movePos){
-            AttackButtons[selectedAttack].style.backgroundColor = Color.grey;
-            selectedAttack = -1;
-            AttackButtons[movePos].style.backgroundColor = Color.grey;
+        if (battleManager.Is_Active_Roguemon(selectedRoguemon)){
+            if(selectedAttack == movePos){
+                AttackButtons[selectedAttack].style.backgroundColor = Color.grey;
+                selectedAttack = -1;
+                AttackButtons[movePos].style.backgroundColor = Color.grey;
+            }
+            
+            
+            else{
+                if (selectedAttack >= 0)
+                    AttackButtons[selectedAttack].style.backgroundColor = Color.grey;
+                selectedAttack = movePos;
+                AttackButtons[movePos].style.backgroundColor = Color.red;
+            } 
         }
             
-            
-        else{
-            if (selectedAttack >= 0)
-                AttackButtons[selectedAttack].style.backgroundColor = Color.grey;
-            selectedAttack = movePos;
-            AttackButtons[movePos].style.backgroundColor = Color.red;
-        }     
+    }
+
+    public void setBattleDialog(string dialogText){
+        helper.setDialogWindowText(dialogLabel, dialogText);
     }
 
     private void switchMoves(int moveLabelPos){
