@@ -7,7 +7,7 @@ public class Effect_Apply_Regeneration : Effect
 
   public override string description{
     get{
-      return "Applies Regeneration";
+      return "Applies Regeneration to";
     }
   }
 

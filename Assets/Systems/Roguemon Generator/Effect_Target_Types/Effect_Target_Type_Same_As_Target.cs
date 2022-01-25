@@ -6,7 +6,7 @@ public class Effect_Target_Type_Same_As_Target : Effect_Target_Type
 {
   public override string description{
     get{
-      return "";
+      return "the target(s)";
     }
   }
 

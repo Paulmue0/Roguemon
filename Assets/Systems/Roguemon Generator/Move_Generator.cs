@@ -42,7 +42,7 @@ public class Move_Generator : MonoBehaviour
 
     public GameObject Generate_Random_Move(Transform parent){
       string ttype = move_target_types_lists[Random.Range(0, move_target_types_lists.Length)];
-      GameObject New_Move = new GameObject(Get_Random_Move_Name(), System.Type.GetType(ttype));
+      GameObject New_Move = new GameObject(Get_Random_Move_Name(), System.Type.GetType("Move_Behaviour"), System.Type.GetType(ttype));
       New_Move.transform.parent = parent;
       Generate_Random_Effect(New_Move.transform);
       Generate_Random_Effect(New_Move.transform);

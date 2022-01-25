@@ -23,7 +23,7 @@ public class Move_Behaviour : MonoBehaviour
       foreach(GameObject EffectGO in Effects){
         Effect Effect = EffectGO.GetComponent(typeof(Effect)) as Effect;
         Effect_Target_Type ettype = Effect.Get_Effect_Target_Type();
-        full_description += Effect.description + " " + ettype.description + ".";
+        full_description += Effect.description + " " + ettype.description + ". ";
       }
       return full_description;
     }
