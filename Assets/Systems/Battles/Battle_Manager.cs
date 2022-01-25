@@ -29,12 +29,12 @@ public class Battle_Manager : MonoBehaviour
     }
 
     IEnumerator Next_Turn(){
+      yield return new WaitForSeconds(1.0f);
       if(Battle_Over_Check() == 0){
         Set_Next_Active_RoguemonGO();
         if(!players_turn){
-          yield return new WaitForSeconds(.5f);
           Opponent.GetComponent<Trainer_Behaviour>().Take_Turn(active_RoguemonGO);
-          yield return new WaitForSeconds(.25f);
+          yield return new WaitForSeconds(1.25f);
           StartCoroutine(Next_Turn());
         }
       }else{
