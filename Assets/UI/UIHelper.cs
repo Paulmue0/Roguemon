@@ -34,8 +34,8 @@ public class UIHelper : MonoBehaviour
         }
         
     }
-
-    public void setAllAttackButtons(List<Button> attackButtons, List<GameObject> moves){
+    // Sets all attack Buttons; If roguemon is not the active one the attack buttons wont be clickable;
+    public void setAllAttackButtons(List<Button> attackButtons, List<GameObject> moves, bool isActive){
         if (attackButtons != null && moves != null){
             int i = 0;
             foreach(GameObject move in moves){
@@ -48,5 +48,8 @@ public class UIHelper : MonoBehaviour
 
     }
 
-    
+    // changes the dialog text
+    public void setDialogWindowText(Label dialogLabel, string dialogText){
+        dialogLabel.text = dialogText;
+    }
 }
