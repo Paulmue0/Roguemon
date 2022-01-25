@@ -23,11 +23,7 @@ public class Move_Behaviour : MonoBehaviour
       foreach(GameObject EffectGO in Effects){
         Effect Effect = EffectGO.GetComponent(typeof(Effect)) as Effect;
         Effect_Target_Type ettype = Effect.Get_Effect_Target_Type();
-        if(ettype.description == ""){
-          full_description += Effect.description + ".";
-        }else{
-          full_description += Effect.description + " to " + ettype.description + ".";
-        }
+        full_description += Effect.description + ettype.description + ".";
       }
       return full_description;
     }
@@ -49,19 +45,18 @@ public class Move_Behaviour : MonoBehaviour
 
     // Gets the targeted Roguemon from the Target_Type and then applies all Effects
     // assigned to this move to them.
-    public void Do_Move(GameObject clicked_GO){
+    public void Do_Move(GameObject clicked_GO, float strength_so_far){
       Move_Target_Type Target_Type = GetComponent(typeof(Move_Target_Type)) as Move_Target_Type;
       List <GameObject> Targets = Target_Type.Get_Targets(clicked_GO);
 
-      Make_Log_Entry();
-
-      // Check each child of this if it is an effect and if yet, then activate
+      strength_so_far = strength_so_far * Target_Type.strength_multiplier;
+      // Check each child of this if it is an effect and if yes, then activate
       // it on the Targets returned by the Target_Type
       foreach (Transform child in transform) {
         Effect effect = child.gameObject.GetComponent(typeof(Effect)) as Effect;
 
         if (effect != null) {
-          effect.Affect(Targets);
+          effect.Affect(Targets, strength_so_far);
         }
       }
     }

@@ -29,12 +29,12 @@ public class Battle_Manager : MonoBehaviour
     }
 
     IEnumerator Next_Turn(){
+      yield return new WaitForSeconds(1.0f);
       if(Battle_Over_Check() == 0){
         Set_Next_Active_RoguemonGO();
         if(!players_turn){
-          yield return new WaitForSeconds(.5f);
           Opponent.GetComponent<Trainer_Behaviour>().Take_Turn(active_RoguemonGO);
-          yield return new WaitForSeconds(.25f);
+          yield return new WaitForSeconds(1.25f);
           StartCoroutine(Next_Turn());
         }
       }else{
@@ -73,6 +73,10 @@ public class Battle_Manager : MonoBehaviour
 
     public GameObject Get_Active_Roguemon(){
       return active_RoguemonGO;
+    }
+
+    public bool Is_Active_Roguemon(GameObject Roguemon){
+      return Roguemon.Equals(active_RoguemonGO);
     }
 
     public GameObject Get_Trainer_Of(GameObject roguemonGO){
@@ -282,6 +286,10 @@ public class Battle_Manager : MonoBehaviour
         players_turn = false;
       }
       Debug.Log("Its now " + active_RoguemonGO.name + "s turn!");
+      battleUI.setBattleDialog("Its now " + active_RoguemonGO.name + "s turn!");
+      active_RoguemonGO.GetComponent<Roguemon_Behaviour>().Trigger_Status_Effects();
+      //battleUI. TODO: Tell UI the next active roguemon
+      battleUI.loadRoguemonInBattleUI(active_RoguemonGO);
     }
 
     // takes two roguemon and returns true if they belong to opposing trainers
